@@ -45,7 +45,10 @@ public class ProductController {
         calendar.add(Calendar.DAY_OF_MONTH, -1);
 
         Product product = new Product();
-        product.setWhere(Constant.QBuilder.GREATER, "modified", calendar.getTime());
+        product
+                .setWhere(Constant.QBuilder.GREATER, "modified", calendar.getTime())
+                .setWhere(true, false, Constant.QBuilder.GREATER, "length('2')", 0);
+
         List<Product> list = productService.selectForList(product);
 
         ModelAndView mv = new ModelAndView("/home");

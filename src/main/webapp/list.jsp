@@ -13,8 +13,9 @@
             <th>名称</th>
             <th>价格</th>
             <th>库存</th>
+            <th>购买数量</th>
         </tr>
-        <c:forEach items="${list}" var="item">
+        <c:forEach items="${list}" var="item" varStatus="s">
             <tr>
                 <td>
                         ${item.name}
@@ -22,8 +23,11 @@
                 <td>
                     ￥${item.price}
                 </td>
-                <td>
+                <td class="stock">
                         ${item.count}
+                </td>
+                <td>
+                    <input type="number" class="count" name="count[${s.index}]" value="0">
                 </td>
             </tr>
         </c:forEach>
@@ -32,5 +36,20 @@
         <input class="submit" type="submit" value="提交订单">
     </p>
 </form>
+<script type="text/javascript" src="./style/js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("input.count").change(function () {
+            var st = parseInt($(this).parents("tr").find("td.stock").html());
+            var buy = parseInt($(this).parents("tr").find("input.count").val());
+            buy = buy < 0? 0: buy;
+            buy = buy > st? st: buy;
+
+            $(this).parents("tr").find("input.count").val(buy);
+        })
+    })
+</script>
+
 </body>
 </html>

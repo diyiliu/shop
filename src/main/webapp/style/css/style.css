@@ -398,3 +398,7 @@ table tr td {
     color: #FFF;
     float: right;
 }
+
+.count{
+    width: 28px;
+}
