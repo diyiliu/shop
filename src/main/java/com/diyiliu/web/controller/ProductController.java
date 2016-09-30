@@ -1,18 +1,14 @@
 package com.diyiliu.web.controller;
 
 import com.diyiliu.other.Constant;
-import com.diyiliu.other.DateUtil;
 import com.diyiliu.support.util.CommonUtil;
 import com.diyiliu.web.entity.Product;
 import com.diyiliu.web.service.ProductService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -32,7 +28,7 @@ public class ProductController {
 
     @RequestMapping("/add")
     public String add(Product product) {
-        product.setId(CommonUtil.makeSerial());
+        product.setId(CommonUtil.generateDateSerial());
         product.setModified(new Date());
         productService.insert(product);
 
@@ -45,9 +41,7 @@ public class ProductController {
         calendar.add(Calendar.DAY_OF_MONTH, -1);
 
         Product product = new Product();
-        product
-                .setWhere(Constant.QBuilder.GREATER, "modified", calendar.getTime())
-                .setWhere(true, false, Constant.QBuilder.GREATER, "length('2')", 0);
+        product.setWhere(Constant.QBuilder.GREATER, "modified", calendar.getTime());
 
         List<Product> list = productService.selectForList(product);
 

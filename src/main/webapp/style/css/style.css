@@ -387,6 +387,16 @@ table tr td {
     border-top: 1px solid #FFF;
 }
 
+.form_footer .money {
+    display: inline-block;
+    width: 99px;
+    height: 33px;
+    line-height: 28px;
+    padding: 2px 0 3px 0;
+    color: #FF1C36;
+    float: right;
+}
+
 .form_footer .submit {
     font: 100% arial;
     border: 1px solid;
@@ -400,5 +410,5 @@ table tr td {
 }
 
 .count{
-    width: 28px;
+    width: 35px;
 }

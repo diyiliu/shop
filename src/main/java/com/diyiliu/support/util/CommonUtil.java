@@ -12,7 +12,7 @@ import java.util.UUID;
 public class CommonUtil {
 
 
-    public static String makeSerial(){
+    public static String generateDateSerial(){
 
         String time = String.format("%1$tY%1$tm%1$td", new Date());
 
@@ -20,5 +20,10 @@ public class CommonUtil {
 
 
         return time + uuid;
+    }
+
+    public static String generateSerial(){
+
+        return UUID.randomUUID().toString().replaceAll("-", "");
     }
 }

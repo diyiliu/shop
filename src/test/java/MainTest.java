@@ -13,6 +13,8 @@ public class MainTest {
     @Test
     public void testSerial() {
 
-        System.out.println(CommonUtil.makeSerial());
+        System.out.println(CommonUtil.generateDateSerial());
+
+        System.out.println(CommonUtil.generateSerial().length());
     }
 }
