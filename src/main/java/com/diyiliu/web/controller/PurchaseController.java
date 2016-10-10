@@ -1,5 +1,6 @@
 package com.diyiliu.web.controller;
 
+import com.diyiliu.other.Constant;
 import com.diyiliu.support.util.CommonUtil;
 import com.diyiliu.web.controller.form.PurchaseForm;
 import com.diyiliu.web.entity.Detail;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -41,7 +43,7 @@ public class PurchaseController {
 
 
     @RequestMapping("/submit")
-    public String submit(PurchaseForm purchaseForm) {
+    public String submit(PurchaseForm purchaseForm, RedirectAttributes attributes) {
 
         Purchase purchase = new Purchase();
 
@@ -69,12 +71,18 @@ public class PurchaseController {
             }
         }
 
-        return "redirect:/index.jsp";
+        attributes.addFlashAttribute("path", "./pur/list.htm");
+
+        return "redirect:/index.htm";
     }
+
 
     @RequestMapping("/list")
     public ModelAndView list() {
-        List<Purchase> purList = purchaseService.selectForList(new Purchase());
+        Purchase purchase = new Purchase();
+        purchase.setWhere(false, Constant.QBuilder.ORDER_BY, null, "ORDER_TIME DESC");
+
+        List<Purchase> purList = purchaseService.selectForList(purchase);
 
         ModelAndView mv = new ModelAndView("/order");
         mv.addObject("list", purList);
