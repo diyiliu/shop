@@ -412,3 +412,8 @@ table tr td {
 .count{
     width: 35px;
 }
+
+tr.detail-product td{
+    background: #FFF;
+}
+

@@ -4,6 +4,7 @@ import com.diyiliu.bll.bean.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 
 /**
  * Description: Detail
@@ -25,6 +26,11 @@ public class Detail extends BaseEntity {
 
     @Column(name = "PRO_COUNT")
     private Integer proCount;
+
+    @Column(name = "PRO_PRICE")
+    private BigDecimal proPrice;
+
+    private Product product;
 
     public String getId() {
         return id;
@@ -56,5 +62,21 @@ public class Detail extends BaseEntity {
 
     public void setProCount(Integer proCount) {
         this.proCount = proCount;
+    }
+
+    public BigDecimal getProPrice() {
+        return proPrice;
+    }
+
+    public void setProPrice(BigDecimal proPrice) {
+        this.proPrice = proPrice;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

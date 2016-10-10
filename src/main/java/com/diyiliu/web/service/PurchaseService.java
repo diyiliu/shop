@@ -1,6 +1,9 @@
 package com.diyiliu.web.service;
 
 import com.diyiliu.bll.service.BaseService;
+import com.diyiliu.web.entity.Detail;
+
+import java.util.List;
 
 /**
  * Description: PurchaseService
@@ -9,4 +12,6 @@ import com.diyiliu.bll.service.BaseService;
  */
 
 public interface PurchaseService extends BaseService {
+
+    List<Detail> queryDetails(String purId);
 }

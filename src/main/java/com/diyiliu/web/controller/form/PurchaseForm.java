@@ -17,6 +17,8 @@ public class PurchaseForm {
 
     private List<Integer> countList;
 
+    private List<BigDecimal> priceList;
+
     public List<String> getIdList() {
         return idList;
     }
@@ -39,5 +41,13 @@ public class PurchaseForm {
 
     public void setMoney(String money) {
         this.money = money;
+    }
+
+    public List<BigDecimal> getPriceList() {
+        return priceList;
+    }
+
+    public void setPriceList(List<BigDecimal> priceList) {
+        this.priceList = priceList;
     }
 }

@@ -28,6 +28,7 @@
                 </td>
                 <td>
                     <input type="number" class="count" name="countList[${s.index}]" value="0">
+                    <input type="hidden" name="priceList[${s.index}]" value="${item.price}">
                     <input type="hidden" name="idList[${s.index}]" value="${item.id}">
                 </td>
             </tr>
@@ -76,7 +77,7 @@
         $("#money").html(sum.toFixed(2))
         $("input[name='money']").val(sum.toFixed(2))
     }
-    
+
 </script>
 
 </body>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.diyiliu.web.dao.PurchaseDao">
+
+    <resultMap id="PurDetail" type="Detail">
+        <id property="id" column="ID"/>
+        <result property="proCount" column="PRO_COUNT"/>
+        <result property="proPrice" column="PRO_PRICE"/>
+        <association property="product" javaType="Product">
+            <id property="id" column="PRO_ID"/>
+            <result property="name" column="PRO_NAME"/>
+        </association>
+    </resultMap>
+
+    <select id="queryDetails" parameterType="String" resultMap="PurDetail">
+        SELECT
+          *
+        FROM
+          detail d
+          INNER JOIN product p
+            ON p.`ID` = d.`PRO_ID`
+        WHERE d.`PUR_ID` = #{purId}
+    </select>
+
+</mapper>

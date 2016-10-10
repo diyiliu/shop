@@ -7,8 +7,13 @@ import com.diyiliu.web.entity.Purchase;
 import com.diyiliu.web.service.DetailService;
 import com.diyiliu.web.service.ProductService;
 import com.diyiliu.web.service.PurchaseService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -22,7 +27,7 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/pur")
+@RequestMapping(value = "/pur", produces = "text/html;charset=UTF-8")
 public class PurchaseController {
 
     @Resource
@@ -36,7 +41,7 @@ public class PurchaseController {
 
 
     @RequestMapping("/submit")
-    public String submit(PurchaseForm purchaseForm){
+    public String submit(PurchaseForm purchaseForm) {
 
         Purchase purchase = new Purchase();
 
@@ -48,22 +53,49 @@ public class PurchaseController {
 
         List<String> idList = purchaseForm.getIdList();
         List<Integer> countList = purchaseForm.getCountList();
+        List<BigDecimal> priceList = purchaseForm.getPriceList();
 
-        for (int i = 0; i < countList.size(); i++){
-            if (countList.get(i) > 0){
+        for (int i = 0; i < countList.size(); i++) {
+            if (countList.get(i) > 0) {
 
                 Detail detail = new Detail();
                 detail.setId(CommonUtil.generateSerial());
                 detail.setPurId(purchase.getId());
                 detail.setProId(idList.get(i));
                 detail.setProCount(countList.get(i));
+                detail.setProPrice(priceList.get(i));
 
                 detailService.insert(detail);
             }
         }
 
-
         return "redirect:/index.jsp";
+    }
+
+    @RequestMapping("/list")
+    public ModelAndView list() {
+        List<Purchase> purList = purchaseService.selectForList(new Purchase());
+
+        ModelAndView mv = new ModelAndView("/order");
+        mv.addObject("list", purList);
+
+        return mv;
+    }
+
+    @ResponseBody
+    @RequestMapping("/detail")
+    public String detail(@RequestParam String purId) {
+        String result = "";
+
+        List<Detail> detailList = purchaseService.queryDetails(purId);
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            result = objectMapper.writeValueAsString(detailList);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 
 }

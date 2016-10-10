@@ -3,6 +3,7 @@
 <html>
 <head><title>Fruit Supermarket</title>
   <meta name="keywords" content="website keywords, website keywords">
+  <link rel="stylesheet" type="text/css" href="./style/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="./style/css/style.css">
 </head>
 <body>
@@ -21,7 +22,7 @@
         <li class="selected"><a href="./index.jsp">首页</a></li>
         <li><a target="./pro/list.htm">选购</a></li>
         <li><a target="./add.jsp">添加</a></li>
-        <li><a target="another_page.html">Another Page</a></li>
+        <li><a target="./pur/list.htm">订单</a></li>
         <li><a target="contact.html">Contact Us</a></li>
       </ul>
     </div>
@@ -82,7 +83,8 @@
   </div>
 </div>
 
-<script type="text/javascript" src="./style/js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="./style/js/jquery-3.0.0.js"></script>
+<script type="text/javascript" src="./style/js/bootstrap.js"></script>
 <script type="text/javascript">
   $(function () {
     $.get("./pro/today.htm", function (data) {
