@@ -19,7 +19,7 @@ public class DateTag extends SimpleTagSupport {
 
     @Override
     public void doTag() throws JspException, IOException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         JspContext jspContext = getJspContext();
         jspContext.getOut().write(dateFormat.format(date));
