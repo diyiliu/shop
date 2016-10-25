@@ -80,7 +80,7 @@ public class PurchaseController {
     @RequestMapping("/list")
     public ModelAndView list() {
         Purchase purchase = new Purchase();
-        purchase.setWhere(false, Constant.QBuilder.ORDER_BY, null, "ORDER_TIME DESC");
+        purchase.setWhere(Constant.QBuilder.ORDER_BY, null, "ORDER_TIME DESC");
 
         List<Purchase> purList = purchaseService.selectForList(purchase);
 

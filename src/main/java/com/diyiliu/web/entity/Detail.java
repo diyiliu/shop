@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  * Update: 2016-09-30 11:47
  */
 
-@Table(name = "DETAIL", schema = "ID")
+@Table(name = "BS_DETAIL", schema = "ID")
 public class Detail extends BaseEntity {
 
     @Column(name = "ID")

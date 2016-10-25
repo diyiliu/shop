@@ -19,4 +19,10 @@ public class HomeCotroller {
         return "/index";
     }
 
+    @RequestMapping("/hello")
+    public String hello(){
+        System.out.println("Hello freemarker!");
+
+        return "/hello";
+    }
 }

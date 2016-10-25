@@ -13,7 +13,7 @@ import java.util.Date;
  * Update: 2016-09-30 11:36
  */
 
-@Table(name = "PURCHASE", schema = "ID")
+@Table(name = "BS_PURCHASE", schema = "ID")
 public class Purchase extends BaseEntity {
 
     @Column(name = "ID")

@@ -17,8 +17,8 @@
         SELECT
           *
         FROM
-          detail d
-          INNER JOIN product p
+          bs_detail d
+          INNER JOIN bs_product p
             ON p.`ID` = d.`PRO_ID`
         WHERE d.`PUR_ID` = #{purId}
     </select>

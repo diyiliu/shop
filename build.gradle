@@ -25,6 +25,7 @@ repositories {
 
 ext {
     springVersion = '4.2.4.RELEASE'
+    freemarkerVersion = '2.3.23'
     mybatisVersion = '3.3.0'
     mybatisSpringVersion = '1.2.3'
     aspectjVersion = '1.8.8'
@@ -56,6 +57,8 @@ dependencies {
             "org.springframework:spring-webmvc:$springVersion",
             "org.springframework:spring-orm:$springVersion",
             "org.springframework:spring-context-support:$springVersion",
+            // freemarker
+            "org.freemarker:freemarker:$freemarkerVersion",
             // mybatis 包
             "org.mybatis:mybatis:$mybatisVersion",
             "org.mybatis:mybatis-spring:$mybatisSpringVersion",
