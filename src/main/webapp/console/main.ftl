@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>后台管理</title>
-    <link rel="stylesheet" type="text/css" href="../style/plugin/easyui/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="../style/plugin/easyui/themes/icon.css">
-    <link rel="stylesheet" type="text/css" href="../style/plugin/zTree/zTreeStyle.css">
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/style/plugin/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/style/plugin/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/style/plugin/zTree/zTreeStyle.css">
 
-    <script type="text/javascript" src="../style/js/jquery-3.0.0.min.js"></script>
-    <script type="text/javascript" src="../style/plugin/easyui/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="../style/plugin/zTree/jquery.ztree.core-3.5.min.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/style/js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/style/plugin/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/style/plugin/zTree/jquery.ztree.core-3.5.min.js"></script>
 </head>
 <body class="easyui-layout">
 <div data-options="region:'north'" style="height:80px"></div>
@@ -17,8 +17,8 @@
 <div data-options="region:'west',split:true" title="我的菜单" style="width:245px">
     <ul id="tree" class="ztree" style="width:auto; overflow:hidden;"></ul>
 </div>
-<div data-options="region:'center',title:'内容'">
-    主面板
+<div id="content" data-options="region:'center',title:'内容'" style="padding: 0">
+    <iframe id="myframe" frameborder="0" scrolling="auto" width="100%" src="${rc.contextPath}/index.htm"></iframe>
 </div>
 <script type="text/javascript">
     var zTree;
@@ -44,7 +44,11 @@
                     return false;
                 }
                 else {
-                    console.log(treeNode.url);
+                    var target = treeNode.path + '.htm';
+                    console.log(target);
+                    $.get(target, function (data) {
+                        $("#content").html(data);
+                    });
                     return true;
                 }
             }
@@ -56,6 +60,7 @@
         $.fn.zTree.init(t, setting, ${list});
         zTree = $.fn.zTree.getZTreeObj("tree");
         zTree.expandAll(true);
+        $("#myframe").height($("#content").height()-3);
     })
 </script>
 <body>

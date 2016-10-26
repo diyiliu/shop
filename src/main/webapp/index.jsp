@@ -1,10 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE HTML>
 <html>
 <head><title>Fruit Supermarket</title>
     <meta name="keywords" content="website keywords, website keywords">
-    <link rel="stylesheet" type="text/css" href="./style/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="./style/css/style.css">
+    <link rel="stylesheet" type="text/css" href="${ctx}/style/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="${ctx}/style/css/style.css">
 </head>
 <body>
 <div id="main">
@@ -19,10 +21,10 @@
         <div id="menubar">
             <ul id="menu">
                 <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
-                <li class="selected"><a href="./index.jsp">首页</a></li>
-                <li><a target="./pro/list.htm">选购</a></li>
-                <li><a target="./add.jsp">添加</a></li>
-                <li><a target="./pur/list.htm">订单</a></li>
+                <li class="selected"><a href="${ctx}/index.jsp">首页</a></li>
+                <li><a target="${ctx}/pro/list.htm">选购</a></li>
+                <li><a target="${ctx}/add.jsp">添加</a></li>
+                <li><a target="${ctx}/pur/list.htm">订单</a></li>
                 <li><a target="contact.html">Contact Us</a></li>
             </ul>
         </div>
@@ -63,7 +65,7 @@
                             <input class="search" type="text" name="search_field"
                                    placeholder="Enter keywords....."><input
                                 name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;"
-                                src="./style/image/search.png" alt="Search" title="Search"></p>
+                                src="${ctx}/style/image/search.png" alt="Search" title="Search"></p>
                     </form>
                 </div>
                 <div class="sidebar_base"></div>
@@ -84,15 +86,15 @@
     </div>
 </div>
 
-<script type="text/javascript" src="./style/js/jquery-3.0.0.js"></script>
-<script type="text/javascript" src="./style/js/bootstrap.js"></script>
+<script type="text/javascript" src="${ctx}/style/js/jquery-3.0.0.js"></script>
+<script type="text/javascript" src="${ctx}/style/js/bootstrap.js"></script>
 <script type="text/javascript">
     $(function () {
         var href;
         if ('${path}') {
             href = '${path}';
         } else {
-            href = './pro/today.htm';
+            href = '${ctx}/pro/today.htm';
         }
 
         $.get(href, function (data) {
