@@ -1,6 +1,8 @@
 import com.diyiliu.support.util.CommonUtil;
 import org.junit.Test;
 
+import java.util.UUID;
+
 /**
  * Description: MainTest
  * Author: DIYILIU
@@ -16,5 +18,7 @@ public class MainTest {
         System.out.println(CommonUtil.generateDateSerial());
 
         System.out.println(CommonUtil.generateSerial().length());
+
+        System.out.println(UUID.randomUUID().toString().replaceAll("-", "").length());
     }
 }

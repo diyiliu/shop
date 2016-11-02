@@ -17,8 +17,13 @@
 <div data-options="region:'west',split:true" title="我的菜单" style="width:245px">
     <ul id="tree" class="ztree" style="width:auto; overflow:hidden;"></ul>
 </div>
-<div id="content" data-options="region:'center',title:'内容'" style="padding: 0">
-    <iframe id="myframe" frameborder="0" scrolling="auto" width="100%" src="${rc.contextPath}/index.htm"></iframe>
+<div id="content" class="easyui-layout" data-options="region:'center'" style="padding: 0px; border: 0px;">
+    <div id="myTab" class="easyui-tabs" data-options="fit:true,border:true" style="padding: 0px;">
+        <div title="首页" style="overflow: hidden">
+            <iframe id="myframe" frameborder="0" width="100%" height="100%"
+                    src="${rc.contextPath}/index.htm"></iframe>
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
     var zTree;
@@ -44,11 +49,25 @@
                     return false;
                 }
                 else {
-                    var target = treeNode.path + '.htm';
-                    console.log(target);
-                    $.get(target, function (data) {
-                        $("#content").html(data);
-                    });
+                    var url = '${rc.contextPath}/sys' + treeNode.path + '.htm';
+
+                    if ($('#myTab').tabs('exists', treeNode.name)) {
+                        $("#myTab").tabs('select',treeNode.name);
+                        refreshTab(treeNode.id, url);
+                    } else {
+                        $('#myTab').tabs('add', {
+                            title: treeNode.name,
+                            content: '<div style="height: 100%;overflow: hidden"><iframe id="' + treeNode.id + '" frameborder="0" height="100%" src="' + url + '"></iframe></div>',
+                            closable: true,
+                            fit : true,
+                            tools : [ {
+                                iconCls : 'icon-mini-refresh',
+                                handler : function() {
+                                    refreshTab(treeNode.id, url);
+                                }
+                            } ]
+                        });
+                    }
                     return true;
                 }
             }
@@ -60,7 +79,11 @@
         $.fn.zTree.init(t, setting, ${list});
         zTree = $.fn.zTree.getZTreeObj("tree");
         zTree.expandAll(true);
-        $("#myframe").height($("#content").height()-3);
     })
+
+    function refreshTab(target, url) {
+        var fm = document.getElementById(target);
+        fm.contentWindow.location.href = url + "?r=" + Math.random();
+    }
 </script>
 <body>

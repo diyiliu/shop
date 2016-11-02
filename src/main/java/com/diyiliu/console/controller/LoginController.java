@@ -37,19 +37,17 @@ public class LoginController {
 
         List<SysResource> list = resourceService.selectForList(new SysResource().
                 setWhere(Constant.QBuilder.EQUAL, "type", "menu").
-                setWhere(Constant.QBuilder.EQUAL, "available", true));
+                setWhere(Constant.QBuilder.EQUAL, "available", true).
+                setWhere(Constant.QBuilder.ORDER_BY, null, "SORT"));
 
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             String result = objectMapper.writeValueAsString(list);
 
             mv.addObject("list", result);
-
-            System.out.println(result);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-
 
         return mv;
     }

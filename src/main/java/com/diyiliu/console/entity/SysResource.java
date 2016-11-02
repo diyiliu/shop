@@ -11,26 +11,29 @@ import javax.persistence.Table;
  * Update: 2016-10-24 16:03
  */
 
-@Table(name = "SYS_RESOURCE", schema = "REID")
+@Table(name = "SYS_RESOURCE", schema = "ID")
 public class SysResource extends BaseEntity{
 
-    @Column(name = "REID")
+    @Column(name = "ID")
     private String id;
 
-    @Column(name = "RE_NAME")
+    @Column(name = "NAME")
     private String name;
 
-    @Column(name = "RE_TYPE")
+    @Column(name = "TYPE")
     private String type;
 
     @Column(name = "URL")
     private String path;
 
-    @Column(name = "P_REID")
+    @Column(name = "PARENT_ID")
     private String pid;
 
-    @Column(name = "P_REIDS")
+    @Column(name = "PARENT_IDS")
     private String pids;
+
+    @Column(name = "SORT")
+    private Integer sort;
 
     @Column(name = "AVAILABLE")
     private boolean available;
@@ -82,6 +85,14 @@ public class SysResource extends BaseEntity{
 
     public void setPids(String pids) {
         this.pids = pids;
+    }
+
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
     }
 
     public boolean isAvailable() {
