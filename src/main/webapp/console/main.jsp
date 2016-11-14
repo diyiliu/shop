@@ -1,15 +1,18 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+
 <html>
 <head>
     <meta charset="UTF-8">
     <title>后台管理</title>
-    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/style/plugin/easyui/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/style/plugin/easyui/themes/icon.css">
-    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/style/plugin/zTree/zTreeStyle.css">
+    <link rel="stylesheet" type="text/css" href="${ctx}/style/plugin/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="${ctx}/style/plugin/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="${ctx}/style/plugin/zTree/zTreeStyle.css">
 
-    <script type="text/javascript" src="${rc.contextPath}/style/js/jquery-3.0.0.min.js"></script>
-    <script type="text/javascript" src="${rc.contextPath}/style/plugin/easyui/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="${rc.contextPath}/style/plugin/zTree/jquery.ztree.core-3.5.min.js"></script>
+    <script type="text/javascript" src="${ctx}/style/js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="${ctx}/style/plugin/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="${ctx}/style/plugin/zTree/jquery.ztree.core-3.5.min.js"></script>
 </head>
 <body class="easyui-layout">
 <div data-options="region:'north',border:false"  style="height:80px"></div>
@@ -21,7 +24,7 @@
     <div id="myTab" class="easyui-tabs" data-options="fit:true,border:true" style="padding: 0px;">
         <div title="首页" style="overflow: hidden">
             <iframe id="myframe" frameborder="0" width="100%" height="100%"
-                    src="${rc.contextPath}/index.htm"></iframe>
+                    src="${ctx}/index.htm"></iframe>
         </div>
     </div>
 </div>
@@ -49,7 +52,7 @@
                     return false;
                 }
                 else {
-                    var url = '${rc.contextPath}/sys' + treeNode.path + '.htm';
+                    var url = '${ctx}/sys' + treeNode.path + '.htm';
 
                     if ($('#myTab').tabs('exists', treeNode.name)) {
                         $("#myTab").tabs('select',treeNode.name);

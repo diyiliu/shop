@@ -28,12 +28,12 @@ public class LoginController {
     @RequestMapping("/login")
     public String index() {
 
-        return "/login";
+        return "/console/login";
     }
 
     @RequestMapping("/main")
     public ModelAndView home() {
-        ModelAndView mv = new ModelAndView("/main");
+        ModelAndView mv = new ModelAndView("/console/main");
 
         List<SysResource> list = resourceService.selectForList(new SysResource().
                 setWhere(Constant.QBuilder.EQUAL, "type", "menu").

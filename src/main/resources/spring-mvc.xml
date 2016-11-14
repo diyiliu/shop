@@ -22,40 +22,35 @@
     <!-- MVC注解映射的支持 -->
     <mvc:annotation-driven/>
 
-    <!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)
-    <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-          p:order="1">
+    <!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)    -->
+    <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="contentType" value="text/html"/>
         <property name="prefix" value="/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-    -->
 
-    <!-- JSP视图解析器 -->
+
+    <!-- JSP视图解析器
     <bean id="viewResolverJsp" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"/>
         <property name="prefix" value="/"/>
         <property name="suffix" value=".jsp"/>
         <property name="order" value="1"/>
-    </bean>
+    </bean> -->
 
-    <!-- 配置FreeMarker视图解析器 (order:0 优先访问)-->
+    <!-- 配置FreeMarker视图解析器 (order:0 优先访问)
     <bean id="viewResolverFtl" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
         <property name="contentType" value="text/html;charset=UTF-8"/>
-        <!-- 请求和会话属性都被复制到模板的属性集中
-        <property name="exposeRequestAttributes" value="true" />
-        <property name="exposeSessionAttributes" value="true" />
-        <property name="exposeSpringMacroHelpers" value="true" />
-         -->
+
         <property name="cache" value="true" />
         <property name="suffix" value=".ftl" />
         <property name="order" value="0"/>
         <property name="requestContextAttribute" value="rc"/>
-    </bean>
+    </bean>-->
 
-    <!-- 配置FreeMarker的模板 -->
+    <!-- 配置FreeMarker的模板
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath" value="/console/"/>
         <property name="defaultEncoding" value="UTF-8"/>
@@ -68,5 +63,5 @@
                 <prop key="number_format">#.##</prop>
             </props>
         </property>
-    </bean>
+    </bean>-->
 </beans>
