@@ -1,0 +1,6 @@
+INSERT INTO `bs_product` VALUES ('201609270f39a1e8', '苹果', 5.69, 10, NULL, '2016-10-8 09:58:11');
+INSERT INTO `bs_product` VALUES ('201609283c4ba7fa', '芒果', 7.89, 20, NULL, '2016-10-8 09:58:18');
+INSERT INTO `bs_product` VALUES ('201609286e6b100e', '西红柿', 1.80, 15, NULL, '2016-9-30 09:58:25');
+INSERT INTO `bs_product` VALUES ('20160928a5df4bbc', '葡萄', 7.80, 20, NULL, '2016-9-30 09:58:29');
+INSERT INTO `bs_product` VALUES ('20160928ea5b220a', '香蕉', 2.48, 5, NULL, '2016-10-10 09:58:32');
+INSERT INTO `bs_product` VALUES ('201609294fe021f8', '黄花', 2.98, 15, NULL, '2016-10-10 10:22:02');
