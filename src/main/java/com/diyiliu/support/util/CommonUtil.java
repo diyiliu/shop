@@ -19,7 +19,7 @@ public class CommonUtil {
         String uuid = UUID.randomUUID().toString().substring(0, 8);
 
 
-        return time + uuid;
+        return uuid + time;
     }
 
     public static String generateSerial(){

@@ -47,7 +47,7 @@ public class PurchaseController {
 
         Purchase purchase = new Purchase();
 
-        purchase.setId(CommonUtil.generateSerial());
+        purchase.setId(CommonUtil.generateDateSerial());
         purchase.setMoney(new BigDecimal(purchaseForm.getMoney()));
         purchase.setOrderDate(new Date());
 

@@ -28,7 +28,7 @@ public class ProductController {
 
     @RequestMapping("/add")
     public String add(Product product) {
-        product.setId(CommonUtil.generateDateSerial());
+        product.setId(CommonUtil.generateSerial());
         product.setModified(new Date());
         productService.insert(product);
 
@@ -41,7 +41,7 @@ public class ProductController {
         calendar.add(Calendar.DAY_OF_MONTH, -1);
 
         Product product = new Product();
-        product.setWhere(Constant.QBuilder.GREATER, "modified", calendar.getTime());
+//        product.setWhere(Constant.QBuilder.GREATER, "modified", calendar.getTime());
 
         List<Product> list = productService.selectForList(product);
 
