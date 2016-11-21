@@ -10,18 +10,17 @@
 <report:html
         name="report"
         reportFileName="shop.raq"
-        needPageMark="no"
+        needPageMark="yes"
         canModifyBeforePrint="yes"
         excelPageStyle="0"
-        selectText="yes"
-        promptAfterSave="yes"
         saveAsName="报送情况"
+        needSaveAsWord="yes"
+        backAndRefresh="yes"
         needSaveAsExcel="yes"
         needSaveAsPdf="yes"
         needPrint="no"
         savePrintSetup="yes"
-        needScroll="yes"
-        scale="1.3" />
+        needScroll="yes"/>
 </body>
 </body>
 </html>
