@@ -9,7 +9,7 @@
 <body style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px;">
 <report:html
         name="report"
-        reportFileName="WEB-INF/reportFiles/shop.raq"
+        reportFileName="shop.raq"
         needPageMark="no"
         canModifyBeforePrint="yes"
         excelPageStyle="0"

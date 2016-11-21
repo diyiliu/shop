@@ -25,7 +25,7 @@
                 <li><a target="${ctx}/pro/list.htm">选购</a></li>
                 <li><a target="${ctx}/add.jsp">添加</a></li>
                 <li><a target="${ctx}/pur/list.htm">订单</a></li>
-                <li><a target="${ctx}/report.jsp">报表</a></li>
+                <li><a target="${ctx}/report.htm">报表</a></li>
             </ul>
         </div>
     </div>

@@ -25,4 +25,11 @@ public class HomeCotroller {
 
         return "/hello";
     }
+
+    @RequestMapping("/report")
+    public String report(){
+        System.out.println("Hello report!");
+
+        return "/WEB-INF/reportJsps/report";
+    }
 }
