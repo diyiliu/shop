@@ -6,11 +6,10 @@
 </head>
 <body>
 <h2>统计报表</h2>
-<body style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px;">
 <report:html
         name="report"
-        reportFileName="shop1.raq"
         width="800"
+        reportFileName="shop1.raq"
         saveAsName="报送情况"/>
 
 <report:html
@@ -18,6 +17,5 @@
         width="800"
         reportFileName="shop2.raq"
         saveAsName="报送情况"/>
-</body>
 </body>
 </html>

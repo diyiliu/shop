@@ -1,12 +1,13 @@
 version=1.0
 11,11
 <0-0>
-	3:1101="2";1201="4";1202="2";1205="19";1206="19";1207="25";1208="25";1209="2";1102="name=ds1,sql=\"SELECT * FROM bs_purchase\",type=normal,param=\"\",beginrow=null,endrow=null,dsn=local_mysql,cached=0,;name=ds2,sql=\"SELECT\\r\\n\\tt.*, t1.PRO_NAME\\r\\nFROM\\r\\n\\tbs_detail t\\r\\nINNER JOIN bs_product t1 ON t1.ID = t.PRO_ID\",type=normal,param=\"\",beginrow=,endrow=,dsn=local_mysql,cached=0,;"
+	3:1206="19";1205="19";1202="2";1201="4";1102="name=ds1,sql=\"SELECT * FROM bs_purchase ORDER BY bs_purchase.ORDER_TIME DESC\",type=normal,param=\"\",beginrow=,endrow=,dsn=local_mysql,cached=0,;name=ds2,sql=\"SELECT\\r\\n\\tt.*, t1.PRO_NAME\\r\\nFROM\\r\\n\\tbs_detail t\\r\\nINNER JOIN bs_product t1 ON t1.ID = t.PRO_ID\",type=normal,param=\"\",beginrow=null,endrow=null,dsn=local_mysql,cached=0,;";1101="2";1209="2";1208="25";1207="25"
 </>
 <0-1>
-	3:2101="45.0"
+	3:2101="18.0"
 </>
 <0-2>
+	3:2101="90.0"
 </>
 <0-3>
 	3:2101="102.0"
@@ -18,7 +19,7 @@ version=1.0
 	3:2101="83.0"
 </>
 <0-6>
-	3:2101="88.0"
+	3:2101="94.0"
 </>
 <0-7>
 </>
