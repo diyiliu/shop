@@ -135,7 +135,7 @@
         </init-param>
         <init-param>
             <param-name>dataSource</param-name>
-            <param-value>jdbc/local_mysql,mysql,gb23121</param-value>
+            <param-value>local_mysql,mysql,gbk</param-value>
         </init-param>
         <init-param>
             <param-name>cachedParamsTimeout</param-name>
