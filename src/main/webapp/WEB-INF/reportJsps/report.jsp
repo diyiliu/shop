@@ -10,12 +10,16 @@
         name="report"
         width="800"
         reportFileName="shop1.raq"
-        saveAsName="报送情况"/>
+        needPageMark="no"
+        needSaveAsExcel="yes"
+        needSaveAsPdf="yes"
+        needPrint="yes"
+        saveAsName="订单报表"/>
 
-<report:html
+<report:print
         name="report"
         width="800"
         reportFileName="shop2.raq"
-        saveAsName="报送情况"/>
+        canModify="no"/>
 </body>
 </html>
