@@ -14,6 +14,7 @@
         needSaveAsExcel="yes"
         needSaveAsPdf="yes"
         needPrint="yes"
+        needDirectPrint="yes"
         saveAsName="订单报表"/>
 
 <report:print

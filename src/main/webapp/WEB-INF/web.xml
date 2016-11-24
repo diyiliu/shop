@@ -170,10 +170,6 @@
         <servlet-class>com.runqian.report.view.excel.SaveAsExcelServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>com.runqian.report.view.word.WordReportServlet</servlet-name>
-        <servlet-class>com.runqian.report.view.word.WordReportServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>com.runqian.report.view.pdf.PdfReportServlet</servlet-name>
         <servlet-class>com.runqian.report.view.pdf.PdfReportServlet</servlet-class>
     </servlet>
@@ -229,14 +225,6 @@
         <servlet-name>com.runqian.report.input.SelectExcelFileServlet</servlet-name>
         <servlet-class>com.runqian.report.input.SelectExcelFileServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>com.runqian.report.view.text.TextFileServlet</servlet-name>
-        <servlet-class>com.runqian.report.view.text.TextFileServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>RaqFileServer</servlet-name>
-        <servlet-class>example.server.RaqFileServer</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>com.runqian.report.view.excel.ExcelReportServlet</servlet-name>
         <url-pattern>/servlet/com.runqian.report.view.excel.ExcelReportServlet</url-pattern>
@@ -248,10 +236,6 @@
     <servlet-mapping>
         <servlet-name>com.runqian.report.view.excel.SaveAsExcelServlet</servlet-name>
         <url-pattern>/servlet/SaveAsExcel</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>com.runqian.report.view.word.WordReportServlet</servlet-name>
-        <url-pattern>/servlet/com.runqian.report.view.word.WordReportServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>com.runqian.report.view.pdf.PdfReportServlet</servlet-name>
@@ -312,14 +296,6 @@
     <servlet-mapping>
         <servlet-name>com.runqian.report.input.SelectExcelFileServlet</servlet-name>
         <url-pattern>/servlet/com.runqian.report.input.SelectExcelFileServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>com.runqian.report.view.text.TextFileServlet</servlet-name>
-        <url-pattern>/servlet/com.runqian.report.view.text.TextFileServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RaqFileServer</servlet-name>
-        <url-pattern>/servlet/RaqFileServer</url-pattern>
     </servlet-mapping>
 
     <jsp-config>
