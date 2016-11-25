@@ -32,4 +32,11 @@ public class HomeCotroller {
 
         return "/WEB-INF/reportJsps/report";
     }
+
+    @RequestMapping("/ireport")
+    public String ireport(){
+        System.out.println("Hello ireport!");
+
+        return "/WEB-INF/reportJsps/ireport";
+    }
 }
