@@ -63,65 +63,6 @@
     </servlet-mapping>
 
     <!-- 润乾 -->
-
-<!--    <servlet>
-        <servlet-name>com.runqian.report.view.DataServlet</servlet-name>
-        <servlet-class>com.runqian.report.view.DataServlet</servlet-class>
-        <init-param>
-            <param-name>license</param-name>
-            <param-value>061231_all.dat</param-value>
-        </init-param>
-        <init-param>
-            <param-name>jreInstallName</param-name>
-            <param-value>/j2re-1_4_1-windows-i586-i.exe#Version=1,4,1,0</param-value>
-        </init-param>
-        <init-param>
-            <param-name>jreVersion</param-name>
-            <param-value>1.4</param-value>
-        </init-param>
-        <init-param>
-            <param-name>reportFileHome</param-name>
-            <param-value>/WEB-INF/reportFiles</param-value>
-        </init-param>
-        <init-param>
-            <param-name>JNDIPrefix</param-name>
-            <param-value>java:comp/env</param-value>
-        </init-param>
-        <init-param>
-            <param-name>dataSource</param-name>
-            <param-value>local_mysql,mysql,GBK,0;</param-value>
-        </init-param>
-        <init-param>
-            <param-name>olapDataSource</param-name>
-            <param-value></param-value>
-        </init-param>
-        <init-param>
-            <param-name>cachedParamsTimeout</param-name>
-            <param-value>120</param-value>
-        </init-param>
-        <init-param>
-            <param-name>cachedReportDir</param-name>
-            <param-value></param-value>
-        </init-param>
-        <init-param>
-            <param-name>cachedReportTimeout</param-name>
-            <param-value>120</param-value>
-        </init-param>
-        <init-param>
-            <param-name>maxConcurrentForBigReport</param-name>
-            <param-value>2</param-value>
-        </init-param>
-        <init-param>
-            <param-name>logConfig</param-name>
-            <param-value>/WEB-INF/runqianReportLog.properties</param-value>
-        </init-param>
-        <init-param>
-            <param-name>appUrlPrefix</param-name>
-            <param-value></param-value>
-        </init-param>
-        <load-on-startup>2</load-on-startup>
-    </servlet>-->
-
     <servlet>
         <servlet-name>com.runqian.report.view.DataServlet</servlet-name>
         <servlet-class>com.runqian.report.view.DataServlet</servlet-class>
@@ -155,7 +96,6 @@
         </init-param>
         <load-on-startup>2</load-on-startup>
     </servlet>
-
 
     <servlet>
         <servlet-name>com.runqian.report.view.excel.ExcelReportServlet</servlet-name>
