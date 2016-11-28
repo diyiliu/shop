@@ -1,9 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <title>Title</title>
     <link rel="stylesheet" type="text/css" href="${ctx}/style/plugin/easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="${ctx}/style/plugin/easyui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="${ctx}/style/plugin/zTree/zTreeStyle.css">
@@ -14,12 +13,12 @@
 </head>
 <body>
 <div class="easyui-layout" fit="true">
-    <div region="north" border="false" class="p-search" style="padding: 20px 10px;">
-        <label>Search:</label><input type="text"/>
+    <div region="north" class="easyui-panel" border="false" style="padding: 20px 10px 5px 10px;">
+        <input class="easyui-searchbox" data-options="prompt:'请输入用户名',searcher:doSearch" style="width:150px">
     </div>
     <div region="center" border="false">
         <table id="dg" title="角色信息列表" class="easyui-datagrid" style="height: 100%"
-               data-options="border:false,rownumbers:true,singleSelect:true,pagination:true,url:'${ctx}/data/datagrid_data1.json',method:'get',toolbar:'#tb'">
+               data-options="border:false,singleSelect:true,pagination:true,url:'${ctx}/data/datagrid_data1.json',method:'get',toolbar:'#tb'">
             <thead>
             <tr>
                 <th data-options="field:'itemid',width:80">Item ID</th>
@@ -39,5 +38,11 @@
     <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-edit">修改</a>
     <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-remove">删除</a>
 </div>
+
+<script>
+    function doSearch(value){
+        alert('You input: ' + value);
+    }
+</script>
 </body>
 </html>
