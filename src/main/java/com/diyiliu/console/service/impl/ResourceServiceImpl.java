@@ -1,6 +1,7 @@
-package com.diyiliu.console.service;
+package com.diyiliu.console.service.impl;
 
 import com.diyiliu.bll.service.impl.BaseServiceImpl;
+import com.diyiliu.console.service.ResourceService;
 import org.springframework.stereotype.Service;
 
 /**

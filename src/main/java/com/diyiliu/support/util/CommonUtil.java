@@ -1,5 +1,8 @@
 package com.diyiliu.support.util;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.Date;
 import java.util.UUID;
 
@@ -12,7 +15,7 @@ import java.util.UUID;
 public class CommonUtil {
 
 
-    public static String generateDateSerial(){
+    public static String generateDateSerial() {
 
         String time = String.format("%1$tY%1$tm%1$td", new Date());
 
@@ -22,8 +25,21 @@ public class CommonUtil {
         return uuid + time;
     }
 
-    public static String generateSerial(){
+    public static String generateSerial() {
 
         return UUID.randomUUID().toString().replaceAll("-", "");
+    }
+
+    public static String generateSerial(int length) {
+        String str = generateSerial();
+
+        return str.substring(0, str.length() > length ? length : str.length());
+    }
+
+
+    public static String toJson(Object obj) throws JsonProcessingException {
+        ObjectMapper objMapper = new ObjectMapper();
+
+        return objMapper.writeValueAsString(obj);
     }
 }
