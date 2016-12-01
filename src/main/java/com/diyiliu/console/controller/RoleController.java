@@ -2,15 +2,18 @@ package com.diyiliu.console.controller;
 
 import com.diyiliu.console.entity.SysRole;
 import com.diyiliu.console.service.RoleService;
+import com.diyiliu.other.PaginationHelper;
 import com.diyiliu.support.util.CommonUtil;
-import org.springframework.http.HttpRequest;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletRequest;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Description: RoleController
@@ -19,7 +22,7 @@ import java.util.Date;
  */
 
 @Controller
-@RequestMapping("/role")
+@RequestMapping(path = "/role", produces = "text/html;charset=UTF-8")
 public class RoleController {
 
     @Resource
@@ -28,8 +31,23 @@ public class RoleController {
     @ResponseBody
     @RequestMapping("list")
     public String list(int page, int rows){
+        String result = "";
 
-        return "";
+        PaginationHelper.page(page - 1, rows);
+        List list = roleService.selectForList(new SysRole());
+
+        Map resultMap = new HashedMap();
+        resultMap.put("total", PaginationHelper.getTotal());
+        resultMap.put("rows", list);
+        try {
+            result = CommonUtil.toJson(resultMap);
+
+            System.out.println(result);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 
     @ResponseBody

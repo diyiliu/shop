@@ -64,7 +64,7 @@
     <bean id="paginationInterceptor" class="com.diyiliu.plugin.PaginationPlugin">
         <property name="properties">
             <props>
-                <prop key="dialect">oracle</prop>
+                <prop key="dialect">mysql</prop>
                 <prop key="pageSqlId">(select|query|)Entity$</prop>
             </props>
         </property>

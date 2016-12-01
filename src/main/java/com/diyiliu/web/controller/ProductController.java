@@ -1,6 +1,5 @@
 package com.diyiliu.web.controller;
 
-import com.diyiliu.other.Constant;
 import com.diyiliu.support.util.CommonUtil;
 import com.diyiliu.web.entity.Product;
 import com.diyiliu.web.service.ProductService;

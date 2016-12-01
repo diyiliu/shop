@@ -3,6 +3,7 @@ package com.diyiliu.support.util;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -39,6 +40,7 @@ public class CommonUtil {
 
     public static String toJson(Object obj) throws JsonProcessingException {
         ObjectMapper objMapper = new ObjectMapper();
+        objMapper.setDateFormat(new SimpleDateFormat("yyyy -MM-dd HH:mm:ss"));
 
         return objMapper.writeValueAsString(obj);
     }

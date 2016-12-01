@@ -21,12 +21,9 @@
                data-options="border:false,singleSelect:true,pagination:true,url:'${ctx}/role/list.htm',method:'get',toolbar:'#tb'">
             <thead>
             <tr>
-                <th data-options="field:'itemid',width:80">Item ID</th>
-                <th data-options="field:'productid',width:100">Product</th>
-                <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
-                <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
-                <th data-options="field:'attr1',width:240">Attribute</th>
-                <th data-options="field:'status',width:60,align:'center'">Status</th>
+                <th data-options="field:'name',width:80">名称</th>
+                <th data-options="field:'remark',width:100">描述</th>
+                <th data-options="field:'createDate',width:80,align:'right'">创建时间</th>
             </tr>
             </thead>
         </table>
@@ -98,7 +95,7 @@
     function del(){
         var row = $('#dg').datagrid('getSelected');
         if (row){
-            $.messager.confirm('Confirm','Are you sure you want to destroy this user?',function(r){
+            $.messager.confirm('Confirm','确定要删除该角色?',function(r){
                 if (r){
                     $.post('destroy_user.php',{id:row.id},function(result){
                         if (result.success){

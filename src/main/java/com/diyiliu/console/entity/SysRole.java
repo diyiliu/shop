@@ -1,6 +1,7 @@
 package com.diyiliu.console.entity;
 
 import com.diyiliu.bll.bean.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
