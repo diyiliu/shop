@@ -66,7 +66,7 @@
                     <div class="coupon coupon-column">
                         <div class="coupon-inner">
                             <a href="#">
-                                <img src="source/image/4.gif">
+                                <img src="source/image/6.png">
                             </a>
                         </div>
                     </div>
