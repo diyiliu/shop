@@ -8,7 +8,7 @@ html {
 }
 
 body {
-    font: normal .80em 'trebuchet ms', arial, sans-serif;
+    font: normal 1.2em 'trebuchet ms', arial, sans-serif;
     background: #646557 url(../../style/image/pattern.png) repeat fixed;
     color: #5D5D5D;
 }
@@ -416,4 +416,3 @@ table tr td {
 tr.detail-product td{
     background: #FFF;
 }
-
