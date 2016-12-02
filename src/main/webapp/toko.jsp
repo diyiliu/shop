@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
@@ -37,6 +38,8 @@
                             </a>
                         </div>
                     </div>
+                    <p><i class="tmall"></i><span class="good">${fn:substring("韩版时尚女士简约复古单肩包", 0, 15)}</span></p>
+                    <p class="sale">券后价<span class="small col-xs-offset-1">￥</span><span class="h3 text-right">150</span><span class="h4 old col-xs-offset-2">￥320</span></p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
@@ -66,7 +69,7 @@
                     <div class="coupon coupon-column">
                         <div class="coupon-inner">
                             <a href="#">
-                                <img src="source/image/6.png">
+                                <img src="source/image/4.gif">
                             </a>
                         </div>
                     </div>

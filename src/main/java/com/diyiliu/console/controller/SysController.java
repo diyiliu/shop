@@ -22,5 +22,13 @@ public class SysController {
         return mv;
     }
 
+    @RequestMapping("/guide")
+    public ModelAndView guideList(){
+
+        ModelAndView mv = new ModelAndView("/console/web/guide");
+
+        return mv;
+    }
+
 
 }
