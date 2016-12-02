@@ -38,11 +38,11 @@
 
 
 <div id="dlg" class="easyui-dialog" style="width:650px" data-options="closed:true,draggable:false,buttons:'#dlg-buttons'">
-    <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px" enctype="multipart/form-data">
+    <form id="fm" method="post" enctype="multipart/form-data" action="${ctx}/guide/addGoods.htm" novalidate style="margin:0;padding:20px 50px">
         <div style="margin-bottom:20px;font-size:14px;border-bottom:1px solid #ccc">商品信息</div>
 
         <div style="margin-bottom:10px">
-            <input name="image" class="easyui-filebox" style="width:100%" data-options="label:'图片:',prompt:'请选择商品图片...'">
+            <input name="file" class="easyui-filebox" style="width:100%" data-options="label:'图片:',prompt:'请选择商品图片...'">
         </div>
 
         <div style="margin-bottom:10px">
@@ -67,15 +67,6 @@
         <div style="margin-bottom:10px">
             <input name="link1" class="easyui-textbox" style="width:100%;height:60px" data-options="label:'链接1:',multiline:true">
         </div>
-
-        <div style="margin-bottom:10px">
-            <input name="link2" class="easyui-textbox" style="width:100%;height:60px" data-options="label:'链接2:',multiline:true">
-        </div>
-
-        <div style="margin-bottom:10px">
-            <input name="link3" class="easyui-textbox" style="width:100%;height:60px" data-options="label:'链接3:',multiline:true">
-        </div>
-
     </form>
 </div>
 <div id="dlg-buttons">
