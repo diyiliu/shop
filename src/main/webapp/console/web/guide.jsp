@@ -37,12 +37,12 @@
 </div>
 
 
-<div id="dlg" class="easyui-dialog" style="width:650px" data-options="closed:true,draggable:false,buttons:'#dlg-buttons'">
+<div id="dlg" class="easyui-dialog" style="width:650px" data-options="buttons:'#dlg-buttons',draggable:false,closed:true">
     <form id="fm" method="post" enctype="multipart/form-data" action="${ctx}/guide/addGoods.htm" novalidate style="margin:0;padding:20px 50px">
         <div style="margin-bottom:20px;font-size:14px;border-bottom:1px solid #ccc">商品信息</div>
 
         <div style="margin-bottom:10px">
-            <input name="file" class="easyui-filebox" style="width:100%" data-options="label:'图片:',prompt:'请选择商品图片...'">
+            <input name="image" class="easyui-filebox" style="width:100%" data-options="label:'图片:',prompt:'请选择商品图片...'">
         </div>
 
         <div style="margin-bottom:10px">
@@ -55,9 +55,17 @@
 
         <div style="margin-bottom:10px">
             <select class="easyui-combobox" name="storeType" label="类别" style="width:100%">
-                <option value="tmall" selected>天猫</option>
+                <option value="tmall" selected="selected">天猫</option>
                 <option value="taobao">淘宝</option>
             </select>
+        </div>
+
+        <div style="margin-bottom:10px">
+            <input name="tOrder" class="easyui-textbox" style="width:100%" data-options="label:'原价:'">
+        </div>
+
+        <div style="margin-bottom:10px">
+            <input name="tOrder" class="easyui-textbox" style="width:100%" data-options="label:'现价:'">
         </div>
 
         <div style="margin-bottom:10px">
@@ -66,6 +74,10 @@
 
         <div style="margin-bottom:10px">
             <input name="link1" class="easyui-textbox" style="width:100%;height:60px" data-options="label:'链接1:',multiline:true">
+        </div>
+
+        <div style="margin-bottom:10px">
+            <input name="link1" class="easyui-textbox" style="width:100%;height:60px" data-options="label:'链接2:',multiline:true">
         </div>
     </form>
 </div>
@@ -81,7 +93,7 @@
     var url;
     function add(){
         $('#dlg').dialog('open').dialog('center').dialog('setTitle','添加商品');
-        $('#fm').form('clear');
+        $('#fm').form('reset');
         url = '${ctx}/guide/addGoods.htm';
     }
     function edit(){
