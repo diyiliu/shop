@@ -1,10 +1,11 @@
 package com.diyiliu.console.controller;
 
+import com.diyiliu.console.controller.form.GoodsForm;
+import com.diyiliu.console.entity.Goods;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -22,12 +23,9 @@ public class GuideController {
 
     @RequestMapping(value = "/addGoods", method = RequestMethod.POST)
     public String addGoods(MultipartFile file, HttpServletRequest request){
-        System.out.println(request instanceof MultipartHttpServletRequest);
-
         String realPath = request.getSession().getServletContext().getRealPath("/source/upload");
         String fileName = file.getOriginalFilename();
 
-        System.out.println(realPath);
         File targetFile = new File(realPath, fileName);
 
         if(!targetFile.exists()){
