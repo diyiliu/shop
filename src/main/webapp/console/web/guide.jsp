@@ -38,59 +38,59 @@
 
 
 <div id="dlg" class="easyui-dialog" style="width:650px" data-options="buttons:'#dlg-buttons',draggable:false,closed:true">
-    <form id="fm" method="post" enctype="multipart/form-data" action="${ctx}/guide/addGoods.htm" novalidate style="margin:0;padding:20px 50px">
+    <form id="fm" action="${ctx}/guide/addGoods.htm" method="post"  enctype="multipart/form-data" novalidate style="margin:0;padding:20px 50px">
         <div style="margin-bottom:20px;font-size:14px;border-bottom:1px solid #ccc">商品信息</div>
 
         <div style="margin-bottom:10px">
-            <input name="image" class="easyui-filebox" style="width:100%" data-options="label:'图片:',prompt:'请选择商品图片...'">
+            <input name="file" class="easyui-filebox" style="width:100%" data-options="label:'图片:',prompt:'请选择商品图片...'">
         </div>
 
-     <div style="margin-bottom:10px">
+        <div style="margin-bottom:10px">
             <input name="goods.name" class="easyui-textbox" style="width:100%" data-options="label:'商品名称:'">
         </div>
-        <%--
-                <div style="margin-bottom:10px">
-                    <input name="goods.store" class="easyui-textbox" style="width:100%" data-options="label:'店铺名称:'">
-                </div>
 
-                <div style="margin-bottom:10px">
-                    <select class="easyui-combobox" name="goods.storeType" label="类别" style="width:100%">
-                        <option value="tmall" selected="selected">天猫</option>
-                        <option value="taobao">淘宝</option>
-                    </select>
-                </div>
+      <div style="margin-bottom:10px">
+            <input name="goods.store" class="easyui-textbox" style="width:100%" data-options="label:'店铺名称:'">
+        </div>
 
-                <div style="margin-bottom:10px">
-                    <input name="goods.price" class="easyui-textbox" style="width:100%" data-options="label:'原价:'">
-                </div>
+        <div style="margin-bottom:10px">
+            <select class="easyui-combobox" name="goods.storeType" label="类别" style="width:100%">
+                <option value="tmall" selected="selected">天猫</option>
+                <option value="taobao">淘宝</option>
+            </select>
+        </div>
 
-                <div style="margin-bottom:10px">
-                    <input name="goods.discount" class="easyui-textbox" style="width:100%" data-options="label:'现价:'">
-                </div>
+        <div style="margin-bottom:10px">
+            <input name="goods.price" class="easyui-textbox" style="width:100%" data-options="label:'原价:'">
+        </div>
 
-                <div style="margin-bottom:10px">
-                    <input name="goods.tOrder" class="easyui-textbox" style="width:100%" data-options="label:'淘口令:'">
-                </div>
+        <div style="margin-bottom:10px">
+            <input name="goods.discount" class="easyui-textbox" style="width:100%" data-options="label:'现价:'">
+        </div>
 
-                <div style="margin-bottom:10px">
-                    <input name="goods.link1" class="easyui-textbox" style="width:100%;height:30px" data-options="label:'商品链接:',multiline:true">
-                </div>
+        <div style="margin-bottom:10px">
+            <input name="goods.tOrder" class="easyui-textbox" style="width:100%" data-options="label:'淘口令:'">
+        </div>
 
-                <div style="margin-bottom:10px">
-                    <input name="goods.link2" class="easyui-textbox" style="width:100%;height:30px" data-options="label:'优惠链接:',multiline:true">
-                </div>
+        <div style="margin-bottom:10px">
+            <input name="goods.link1" class="easyui-textbox" style="width:100%;height:30px" data-options="label:'商品链接:',multiline:true">
+        </div>
 
-                <div style="margin-bottom:10px">
-                    <input name="goods.link3" class="easyui-textbox" style="width:100%;height:30px" data-options="label:'购买链接:',multiline:true">
-                </div>
+        <div style="margin-bottom:10px">
+            <input name="goods.link2" class="easyui-textbox" style="width:100%;height:30px" data-options="label:'优惠链接:',multiline:true">
+        </div>
 
-                <div style="margin-bottom:10px">
-                    <input name="goods.startTime" class="easyui-datetimebox" style="width:100%" data-options="label:'开始时间:'">
-                </div>
+        <div style="margin-bottom:10px">
+            <input name="goods.link3" class="easyui-textbox" style="width:100%;height:30px" data-options="label:'购买链接:',multiline:true">
+        </div>
 
-                <div style="margin-bottom:10px">
-                    <input name="goods.endTime" class="easyui-datetimebox" style="width:100%" data-options="label:'结束时间:'">
-                </div>--%>
+        <div style="margin-bottom:10px">
+            <input name="goods.startTime" class="easyui-datetimebox" style="width:100%" data-options="label:'开始时间:'">
+        </div>
+
+        <div style="margin-bottom:10px">
+            <input name="goods.endTime" class="easyui-datetimebox" style="width:100%" data-options="label:'结束时间:'">
+        </div>
 
     </form>
 </div>
@@ -137,6 +137,7 @@
             }
         });
     }
+
     function del(){
         var row = $('#dg').datagrid('getSelected');
         if (row){
