@@ -1,5 +1,7 @@
 package com.diyiliu.console.entity;
 
+import com.diyiliu.bll.bean.BaseEntity;
+
 import javax.persistence.Column;
 import javax.persistence.Table;
 import java.math.BigDecimal;
@@ -13,7 +15,7 @@ import java.util.Date;
 
 
 @Table(name = "GD_GOODS", schema = "ID")
-public class Goods {
+public class Goods extends BaseEntity{
 
     @Column(name = "ID")
     private Long id;
