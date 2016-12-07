@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,21 +27,25 @@ import java.util.Date;
 @RequestMapping(value = "/guide", produces = "text/html;charset=UTF-8")
 public class GuideController {
 
+    @ResponseBody
     @RequestMapping(value = "/addGoods")
-    public String addGoods(MultipartFile file, GoodsForm goodsForm, HttpServletRequest request){
-        String realPath = request.getSession().getServletContext().getRealPath("/source/upload");
-        String fileName = file.getOriginalFilename();
+    public String addGoods(MultipartFile file, GoodsForm goodsForm, HttpServletRequest request) {
 
-        File targetFile = new File(realPath, fileName);
+        if (!file.isEmpty()) {
+            String realPath = request.getSession().getServletContext().getRealPath("/source/upload");
+            String fileName = file.getOriginalFilename();
 
-        if(!targetFile.exists()){
-            targetFile.mkdirs();
-        }
+            File targetFile = new File(realPath, fileName);
 
-        try {
-            file.transferTo(targetFile);
-        } catch (IOException e) {
-            e.printStackTrace();
+            if (!targetFile.exists()) {
+                targetFile.mkdirs();
+            }
+
+            try {
+                file.transferTo(targetFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         return "1";
@@ -49,8 +55,8 @@ public class GuideController {
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
         CustomDateEditor dateEditor = new CustomDateEditor(format, true);
+
         binder.registerCustomEditor(Date.class, dateEditor);
     }
 }
