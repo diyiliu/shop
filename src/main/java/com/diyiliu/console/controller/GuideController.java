@@ -3,6 +3,7 @@ package com.diyiliu.console.controller;
 import com.diyiliu.console.controller.form.GoodsForm;
 import com.diyiliu.console.entity.Goods;
 import com.diyiliu.console.service.GoodsService;
+import com.diyiliu.support.util.CommonUtil;
 import com.diyiliu.support.util.DateUtil;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -62,7 +63,7 @@ public class GuideController {
         Goods goods = goodsForm.getGoods();
         // TODO: 2016/12/7  mysql转义特殊符号
         goods.setImagePath(imagePath.replaceAll("\\\\", "\\\\\\\\"));
-
+        goods.setSerial(CommonUtil.generateDateSerial());
         goods.setCreateTime(new Date());
 
         goodsService.insert(goods);

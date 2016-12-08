@@ -20,6 +20,9 @@ public class Goods extends BaseEntity{
     @Column(name = "ID")
     private Long id;
 
+    @Column(name = "SERIAL")
+    private String serial;
+
     @Column(name = "NAME")
     private String name;
 
@@ -68,6 +71,14 @@ public class Goods extends BaseEntity{
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getSerial() {
+        return serial;
+    }
+
+    public void setSerial(String serial) {
+        this.serial = serial;
     }
 
     public String getName() {
