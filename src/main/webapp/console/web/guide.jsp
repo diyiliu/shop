@@ -19,12 +19,14 @@
     </div>
     <div region="center" border="false">
         <table id="dg" title="商品列表" class="easyui-datagrid" style="height: 100%" rownumbers="true" fitColumns="true"
-               data-options="border:false,singleSelect:true,pagination:true,url:'${ctx}/role/list.htm',method:'get',toolbar:'#tb'">
+               data-options="border:false,singleSelect:true,pagination:true,url:'${ctx}/guide/list.htm',method:'post',toolbar:'#tb'">
             <thead>
             <tr>
-                <th data-options="field:'name',width:80">名称</th>
-                <th data-options="field:'remark',width:100">描述</th>
-                <th data-options="field:'createDate',width:80,align:'right'">创建时间</th>
+                <th data-options="field:'name',width:80">商品名称</th>
+                <th data-options="field:'price',width:80,align:'right'">原价</th>
+                <th data-options="field:'discount',width:80,align:'right'">优惠价</th>
+                <th data-options="field:'startTime',width:120">开始时间</th>
+                <th data-options="field:'endTime',width:120">结束时间</th>
             </tr>
             </thead>
         </table>

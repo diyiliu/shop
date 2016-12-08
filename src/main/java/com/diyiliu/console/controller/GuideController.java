@@ -2,9 +2,13 @@ package com.diyiliu.console.controller;
 
 import com.diyiliu.console.controller.form.GoodsForm;
 import com.diyiliu.console.entity.Goods;
+import com.diyiliu.console.entity.SysRole;
 import com.diyiliu.console.service.GoodsService;
+import com.diyiliu.other.PaginationHelper;
 import com.diyiliu.support.util.CommonUtil;
 import com.diyiliu.support.util.DateUtil;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
@@ -20,6 +24,8 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Description: GuideController
@@ -33,6 +39,31 @@ public class GuideController {
 
     @Resource
     private GoodsService goodsService;
+
+
+    @ResponseBody
+    @RequestMapping("list")
+    public String list(int page, int rows){
+        String result = "";
+
+        PaginationHelper.page(page - 1, rows);
+        List list = goodsService.selectForList(new Goods());
+
+        Map resultMap = new HashedMap();
+        resultMap.put("total", PaginationHelper.getTotal());
+        resultMap.put("rows", list);
+        try {
+            result = CommonUtil.toJson(resultMap);
+
+            System.out.println(result);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+
 
     @ResponseBody
     @RequestMapping(value = "/addGoods")

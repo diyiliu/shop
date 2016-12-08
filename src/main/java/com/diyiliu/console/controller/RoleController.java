@@ -29,7 +29,7 @@ public class RoleController {
     private RoleService roleService;
 
     @ResponseBody
-    @RequestMapping("list")
+    @RequestMapping("/list")
     public String list(int page, int rows){
         String result = "";
 

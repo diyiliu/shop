@@ -18,7 +18,7 @@ import java.util.Date;
 public class Goods extends BaseEntity{
 
     @Column(name = "ID")
-    private Long id;
+    private Integer id;
 
     @Column(name = "SERIAL")
     private String serial;
@@ -65,11 +65,11 @@ public class Goods extends BaseEntity{
     @Column(name = "STATUS")
     private Integer status;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
