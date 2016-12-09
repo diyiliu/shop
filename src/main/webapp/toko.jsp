@@ -27,15 +27,13 @@
 </div>
 
 <div class="section">
-    <div class="container">
+    <div class="container" id="mainPanel">
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="popular clearfix">
                     <div class="coupon coupon-column">
                         <div class="coupon-inner">
-                            <a href="#">
-                                <img src="source/image/1.jpg">
-                            </a>
+                            <a href="#"><img src="source/image/1.jpg"></a>
                         </div>
                     </div>
                     <p><i class="tmall"></i><span class="good">${fn:substring("韩版时尚女士简约复古单肩包", 0, 15)}</span></p>
@@ -51,6 +49,8 @@
                             </a>
                         </div>
                     </div>
+                    <p><i class="tmall"></i><span class="good">${fn:substring("韩版时尚女士简约复古单肩包", 0, 15)}</span></p>
+                    <p class="sale">券后价<span class="small col-xs-offset-1">￥</span><span class="h3 text-right">150</span><span class="h4 old col-xs-offset-2">￥320</span></p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
@@ -62,6 +62,8 @@
                             </a>
                         </div>
                     </div>
+                    <p><i class="tmall"></i><span class="good">${fn:substring("韩版时尚女士简约复古单肩包", 0, 15)}</span></p>
+                    <p class="sale">券后价<span class="small col-xs-offset-1">￥</span><span class="h3 text-right">150</span><span class="h4 old col-xs-offset-2">￥320</span></p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
@@ -73,10 +75,51 @@
                             </a>
                         </div>
                     </div>
+                    <p><i class="tmall"></i><span class="good">${fn:substring("韩版时尚女士简约复古单肩包", 0, 15)}</span></p>
+                    <p class="sale">券后价<span class="small col-xs-offset-1">￥</span><span class="h3 text-right">150</span><span class="h4 old col-xs-offset-2">￥320</span></p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        fetch(1, 4);
+    })
+
+    var page = 1, rows = 4;
+    function fetch(page, rows) {
+        $.ajax({
+            url:'${ctx}/guide/list.htm',
+            type:'GET',
+            data:{page:page,rows:rows},
+            dataType:'json',
+            success:function(result){
+                var dataGroup = result.rows;
+                var content = '<div class="row">';
+                for (i in dataGroup){
+                    var data = dataGroup[i];
+                    content += '<div class="col-md-3 col-sm-6 col-xs-12">' +
+                            '<div class="popular clearfix">' +
+                            '<div class="coupon coupon-column">' +
+                            '<div class="coupon-inner">' +
+                            '<a href="' + data["link1"] + '"><img src="${ctx}/' + data["imagePath"] + '"></a></div></div>' +
+                            '<p><i class="' + data["storeType"] + '"></i><span class="good">' + data["name"] + '</span></p>' +
+                            '<p class="sale">券后价<span class="small col-xs-offset-1">￥</span>' +
+                            '<span class="h3 text-right">' + data["discount"] + '</span>' +
+                            '<span class="h4 old col-xs-offset-1">￥' + data["price"] + '</span></p></div></div>';
+                }
+                content += '</div>';
+
+                $('#mainPanel').append(content);
+            },
+            error:function(xhr,textStatus){
+                console.log('错误:' + textStatus);
+            }
+        })
+    }
+
+</script>
 </body>
 </html>

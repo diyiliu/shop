@@ -9,6 +9,8 @@ import com.diyiliu.support.util.CommonUtil;
 import com.diyiliu.support.util.DateUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.commons.collections.map.HashedMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
@@ -37,6 +39,8 @@ import java.util.Map;
 @RequestMapping(value = "/guide", produces = "text/html;charset=UTF-8")
 public class GuideController {
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Resource
     private GoodsService goodsService;
 
@@ -55,7 +59,7 @@ public class GuideController {
         try {
             result = CommonUtil.toJson(resultMap);
 
-            System.out.println(result);
+            logger.debug(result);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

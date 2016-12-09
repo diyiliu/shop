@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/style/plugin/easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="${ctx}/style/plugin/easyui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="${ctx}/style/plugin/zTree/zTreeStyle.css">
+    <link rel="stylesheet" type="text/css" href="${ctx}/style/css/toko.css">
 
 
     <script type="text/javascript" src="${ctx}/style/js/jquery-3.0.0.min.js"></script>
@@ -23,10 +24,11 @@
             <thead>
             <tr>
                 <th data-options="field:'name',width:80">商品名称</th>
-                <th data-options="field:'price',width:80,align:'right'" formatter="fmDecimal">原价</th>
-                <th data-options="field:'discount',width:80,align:'right'" formatter="fmDecimal">优惠价</th>
-                <th data-options="field:'startTime',width:120">开始时间</th>
-                <th data-options="field:'endTime',width:120">结束时间</th>
+                <th data-options="field:'store',width:120" formatter="fmStoreType">店铺</th>
+                <th data-options="field:'discount',width:80,align:'right'" formatter="fmMoneyRed">优惠价</th>
+                <th data-options="field:'price',width:80,align:'right'" formatter="fmMoney">原价</th>
+                <th data-options="field:'startTime',width:60">开始时间</th>
+                <th data-options="field:'endTime',width:60">结束时间</th>
             </tr>
             </thead>
         </table>
@@ -196,10 +198,19 @@
         }
         return url;
     }
-    
-    function fmDecimal(val, row) {
-        console.log(val);
-        return val.toFixed(2);
+
+
+    function fmMoney(val, row) {
+        return '￥' + val;
+    }
+
+    function fmMoneyRed(val, row) {
+        return '￥<span style="color: red">' + val + '</span>';
+    }
+
+    function fmStoreType(val, row) {
+        var cls = row["storeType"];
+        return '<i class="' + cls + '"></i>&nbsp;'  + val;
     }
 </script>
 </body>

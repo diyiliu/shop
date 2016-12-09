@@ -1,8 +1,7 @@
-
 /* 购物导航 */
-.page-wrap{
-/*    min-height: 100%;
-    margin-bottom: -295px;*/
+.page-wrap {
+    /*    min-height: 100%;
+        margin-bottom: -295px;*/
 }
 
 .title-content {
@@ -11,7 +10,7 @@
     border-bottom: 1px solid #e2e2e2;
 }
 
-.popular{
+.popular {
     margin: 40px 0 0;
     padding-bottom: 20px;
 }
@@ -36,6 +35,7 @@
     -ms-flex-flow: row wrap;
     flex-flow: row wrap;
 }
+
 .coupon .coupon-inner {
     display: -webkit-box;
     display: -webkit-flex;
@@ -43,18 +43,26 @@
     display: flex;
     padding: 2px;
 }
-.popular  .sale{
+
+.coupon .coupon-inner a {
+    width: 100%;
+}
+
+.popular .sale {
     padding: 10px;
     color: #fff;
     background-color: #cc2b5c;
 }
-.popular .good{
+
+.popular .good {
     padding-left: 15px;
 }
-.sale .old{
-     font-family: "Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,Verdana,sans-serif,"WenQuanYi Micro Hei","\5B8B\4F53";
-     text-decoration: line-through;
- }
+
+.sale .old {
+    font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", Helvetica, tahoma, arial, Verdana, sans-serif, "WenQuanYi Micro Hei", "\5B8B\4F53";
+    text-decoration: line-through;
+    font-size: small;
+}
 
 .tmall {
     background: url("/style/image/tmall.png") 0 0 no-repeat;
@@ -63,6 +71,7 @@
     display: block;
     float: left;
 }
+
 .taobao {
     background: url("/style/image/taobao.png") 0 0 no-repeat;
     width: 16px;

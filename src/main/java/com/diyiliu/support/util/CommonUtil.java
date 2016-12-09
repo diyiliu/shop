@@ -51,12 +51,14 @@ public class CommonUtil {
 
         SimpleModule module = new SimpleModule();
 
+        // 保留两位小数
         module.addSerializer(BigDecimal.class, new JsonSerializer<BigDecimal>() {
             @Override
             public void serialize(BigDecimal value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
-                gen.writeNumber(value.setScale(2, BigDecimal.ROUND_HALF_UP));
+                gen.writeString(value.setScale(1, BigDecimal.ROUND_HALF_UP).toString());
             }
         });
+
         module.addSerializer(Date.class, new JsonSerializer<Date>() {
             @Override
             public void serialize(Date value, JsonGenerator gen, SerializerProvider serializers) throws IOException {

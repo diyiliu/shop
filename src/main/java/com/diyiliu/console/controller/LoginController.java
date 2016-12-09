@@ -45,6 +45,8 @@ public class LoginController {
             String result = objectMapper.writeValueAsString(list);
 
             mv.addObject("list", result);
+
+            System.out.println(result);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
