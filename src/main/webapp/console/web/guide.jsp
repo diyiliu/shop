@@ -23,8 +23,8 @@
             <thead>
             <tr>
                 <th data-options="field:'name',width:80">商品名称</th>
-                <th data-options="field:'price',width:80,align:'right'">原价</th>
-                <th data-options="field:'discount',width:80,align:'right'">优惠价</th>
+                <th data-options="field:'price',width:80,align:'right'" formatter="fmDecimal">原价</th>
+                <th data-options="field:'discount',width:80,align:'right'" formatter="fmDecimal">优惠价</th>
                 <th data-options="field:'startTime',width:120">开始时间</th>
                 <th data-options="field:'endTime',width:120">结束时间</th>
             </tr>
@@ -42,7 +42,7 @@
 
 <div id="dlg" class="easyui-dialog" style="width:650px"
      data-options="buttons:'#dlg-buttons',draggable:false,closed:true">
-    <form id="fm" action="${ctx}/guide/addGoods.htm" method="post" enctype="multipart/form-data" novalidate
+    <form id="fm" action="${ctx}/guide/addGoods.htm" method="post" enctype="multipart/form-data"
           style="margin:0;padding:20px 50px">
         <div style="margin-bottom:20px;font-size:14px;border-bottom:1px solid #ccc">商品信息</div>
 
@@ -195,6 +195,11 @@
             url = window.webkitURL.createObjectURL(file);
         }
         return url;
+    }
+    
+    function fmDecimal(val, row) {
+        console.log(val);
+        return val.toFixed(2);
     }
 </script>
 </body>

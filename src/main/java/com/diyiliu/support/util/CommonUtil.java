@@ -1,8 +1,14 @@
 package com.diyiliu.support.util;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
@@ -40,7 +46,27 @@ public class CommonUtil {
 
     public static String toJson(Object obj) throws JsonProcessingException {
         ObjectMapper objMapper = new ObjectMapper();
-        objMapper.setDateFormat(new SimpleDateFormat("yyyy -MM-dd HH:mm:ss"));
+
+        //objMapper.setDateFormat(new SimpleDateFormat("yyyy -MM-dd HH:mm:ss"));
+
+        SimpleModule module = new SimpleModule();
+
+        module.addSerializer(BigDecimal.class, new JsonSerializer<BigDecimal>() {
+            @Override
+            public void serialize(BigDecimal value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
+                gen.writeNumber(value.setScale(2, BigDecimal.ROUND_HALF_UP));
+            }
+        });
+        module.addSerializer(Date.class, new JsonSerializer<Date>() {
+            @Override
+            public void serialize(Date value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
+
+                gen.writeString(String.format("%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS", value));
+            }
+        });
+
+        objMapper.registerModule(module);
+
 
         return objMapper.writeValueAsString(obj);
     }
