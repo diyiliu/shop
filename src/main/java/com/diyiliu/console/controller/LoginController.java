@@ -5,6 +5,8 @@ import com.diyiliu.console.service.ResourceService;
 import com.diyiliu.other.Constant;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,6 +23,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/admin")
 public class LoginController {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Resource
     private ResourceService resourceService;
@@ -44,12 +48,14 @@ public class LoginController {
             ObjectMapper objectMapper = new ObjectMapper();
             String result = objectMapper.writeValueAsString(list);
 
-            mv.addObject("list", result);
+            logger.debug(result);
 
-            System.out.println(result);
+            mv.addObject("list", result);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+
+
 
         return mv;
     }
