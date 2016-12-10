@@ -57,58 +57,62 @@
         </div>
 
         <div style="margin-bottom:10px">
-            <input name="file" class="easyui-filebox" style="width:100%"
+            <input id="file" name="file" class="easyui-filebox" style="width:100%"
                    data-options="label:'图片:',prompt:'请选择商品图片...',onChange:function(){preview(this)}">
         </div>
 
         <div style="margin-bottom:10px">
-            <input name="goods.name" class="easyui-textbox" style="width:100%" data-options="label:'商品名称:'">
+            <input id="name" name="goods.name" class="easyui-textbox" style="width:100%" data-options="label:'商品名称:'">
         </div>
 
         <div style="margin-bottom:10px">
-            <input name="goods.store" class="easyui-textbox" style="width:100%" data-options="label:'店铺名称:'">
+            <input id="store" name="goods.store" class="easyui-textbox" style="width:100%" data-options="label:'店铺名称:'">
         </div>
 
         <div style="margin-bottom:10px">
-            <select class="easyui-combobox" name="goods.storeType" label="类别" style="width:100%">
+            <select id="storeType" class="easyui-combobox" name="goods.storeType" label="类别" style="width:100%">
                 <option value="tmall" selected="selected">天猫</option>
                 <option value="taobao">淘宝</option>
             </select>
         </div>
 
         <div style="margin-bottom:10px">
-            <input name="goods.price" class="easyui-textbox" style="width:100%" data-options="label:'原价:'">
+            <input id="price" name="goods.price" class="easyui-textbox" style="width:100%" data-options="label:'原价:'">
         </div>
 
         <div style="margin-bottom:10px">
-            <input name="goods.discount" class="easyui-textbox" style="width:100%" data-options="label:'现价:'">
+            <input id="discount" name="goods.discount" class="easyui-textbox" style="width:100%"
+                   data-options="label:'现价:'">
         </div>
 
         <div style="margin-bottom:10px">
-            <input name="goods.tOrder" class="easyui-textbox" style="width:100%" data-options="label:'淘口令:'">
+            <input id="tOrder" name="goods.tOrder" class="easyui-textbox" style="width:100%"
+                   data-options="label:'淘口令:'">
         </div>
 
         <div style="margin-bottom:10px">
-            <input name="goods.link1" class="easyui-textbox" style="width:100%;height:30px"
+            <input id="link1" name="goods.link1" class="easyui-textbox" style="width:100%;height:30px"
                    data-options="label:'商品链接:',multiline:true">
         </div>
 
         <div style="margin-bottom:10px">
-            <input name="goods.link2" class="easyui-textbox" style="width:100%;height:30px"
+            <input id="link2" name="goods.link2" class="easyui-textbox" style="width:100%;height:30px"
                    data-options="label:'优惠链接:',multiline:true">
         </div>
 
         <div style="margin-bottom:10px">
-            <input name="goods.link3" class="easyui-textbox" style="width:100%;height:30px"
+            <input id="link3" name="goods.link3" class="easyui-textbox" style="width:100%;height:30px"
                    data-options="label:'购买链接:',multiline:true">
         </div>
 
         <div style="margin-bottom:10px">
-            <input name="goods.startTime" class="easyui-datetimebox" style="width:100%" data-options="label:'开始时间:'">
+            <input id="startTime" name="goods.startTime" class="easyui-datetimebox" style="width:100%"
+                   data-options="label:'开始时间:'">
         </div>
 
         <div style="margin-bottom:10px">
-            <input name="goods.endTime" class="easyui-datetimebox" style="width:100%" data-options="label:'结束时间:'">
+            <input id="endTime" name="goods.endTime" class="easyui-datetimebox" style="width:100%"
+                   data-options="label:'结束时间:'">
         </div>
 
     </form>
@@ -131,10 +135,12 @@
     }
     function edit() {
         var row = $('#dg').datagrid('getSelected');
+        console.log(row);
+        loadRows(row);
         if (row) {
-            $('#dlg').dialog('open').dialog('center').dialog('setTitle', 'Edit User');
+            $('#dlg').dialog('open').dialog('center').dialog('setTitle', '修改');
             $('#fm').form('load', row);
-            url = 'update_user.php?id=' + row.id;
+            url = '${ctx}/guide/editGoods.htm?id=' + row.id;
         }
     }
     function save() {
@@ -199,6 +205,19 @@
         return url;
     }
 
+    function loadRows(row) {
+        $('#fm').find('input').each(function () {
+            var name = $(this).attr("name");
+            if (typeof(name) != "undefined") {
+                var i = name.indexOf(".") + 1;
+                if (i > 0) {
+                    var key = name.substr(i, name.length - i);
+                    console.log(row[key]);
+                    $('#' + key).textbox('setValue', row[key]);
+                }
+            }
+        })
+    }
 
     function fmMoney(val, row) {
         return '￥' + val;
@@ -210,7 +229,7 @@
 
     function fmStoreType(val, row) {
         var cls = row["storeType"];
-        return '<i class="' + cls + '"></i>&nbsp;'  + val;
+        return '<i class="' + cls + '"></i>&nbsp;' + val;
     }
 </script>
 </body>
