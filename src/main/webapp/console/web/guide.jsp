@@ -167,9 +167,9 @@
     function del() {
         var row = $('#dg').datagrid('getSelected');
         if (row) {
-            $.messager.confirm('提示', '确定要删除该角色?', function (r) {
+            $.messager.confirm('提示', '确定要删除该商品?', function (r) {
                 if (r) {
-                    $.post('destroy_user.php', {id: row.id}, function (result) {
+                    $.post('${ctx}/guide/delGoods.htm', {id: row.id}, function (result) {
                         if (result.success) {
                             $('#dg').datagrid('reload');    // reload the user data
                         } else {
