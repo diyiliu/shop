@@ -73,4 +73,32 @@ public class MainTest {
         System.out.println(mapper.writeValueAsString(goods));
     }
 
+
+    @Test
+    public void testReturn(){
+
+       int  a = 10;
+
+        b(a);
+    }
+
+    private int a(){
+
+        System.out.println(1);
+
+        return 1;
+    }
+
+    private int b(int b){
+
+        if (b == 10){
+           return a();
+        }
+
+        System.out.println(12);
+
+        return 1;
+    }
+
+
 }

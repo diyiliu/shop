@@ -4,6 +4,7 @@ import com.diyiliu.console.controller.form.GoodsForm;
 import com.diyiliu.console.entity.Goods;
 import com.diyiliu.console.entity.SysRole;
 import com.diyiliu.console.service.GoodsService;
+import com.diyiliu.other.Constant;
 import com.diyiliu.other.PaginationHelper;
 import com.diyiliu.support.util.CommonUtil;
 import com.diyiliu.support.util.DateUtil;
@@ -75,24 +76,7 @@ public class GuideController {
 
         String imagePath = "";
         if (!file.isEmpty()) {
-            // 项目路径
-            String realPath = request.getSession().getServletContext().getRealPath("/source/upload");
-            // 文件名
-            String fileName = file.getOriginalFilename();
-            // 日期时间戳
-            String daySerial = DateUtil.dateToString(new Date(), "%1$tY%1$tm%1$td");
-
-            File targetFile = new File(realPath + "/" + daySerial, fileName);
-            if (!targetFile.exists()) {
-                targetFile.mkdirs();
-            }
-
-            try {
-                file.transferTo(targetFile);
-                imagePath = targetFile.getPath();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            imagePath = saveImage(file, request);
         }
 
         Goods goods = goodsForm.getGoods();
@@ -120,6 +104,29 @@ public class GuideController {
         return CommonUtil.toJson(result);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/editGoods")
+    public String editGoods(MultipartFile file, GoodsForm goodsForm, HttpServletRequest request, @RequestParam("id") Integer id) {
+
+        String imagePath = null;
+        if (!file.isEmpty()) {
+            imagePath = saveImage(file, request);
+        }
+
+        Goods goods = goodsForm.getGoods();
+        if (imagePath != null){
+            goods.setImagePath(imagePath.substring(imagePath.lastIndexOf("source")).replaceAll("\\\\", "\\\\\\\\"));
+        }
+
+        goods.setWhere(Constant.QBuilder.EQUAL, "id", id);
+        goods.setNonNull(true);
+
+        goodsService.update(goods);
+
+        return "1";
+    }
+
+
 
 
 
@@ -130,5 +137,30 @@ public class GuideController {
         CustomDateEditor dateEditor = new CustomDateEditor(format, true);
 
         binder.registerCustomEditor(Date.class, dateEditor);
+    }
+
+
+    private String saveImage(MultipartFile file, HttpServletRequest request){
+        String imagePath = "";
+        // 项目路径
+        String realPath = request.getSession().getServletContext().getRealPath("/source/upload");
+        // 文件名
+        String fileName = file.getOriginalFilename();
+        // 日期时间戳
+        String daySerial = DateUtil.dateToString(new Date(), "%1$tY%1$tm%1$td");
+
+        File targetFile = new File(realPath + "/" + daySerial, fileName);
+        if (!targetFile.exists()) {
+            targetFile.mkdirs();
+        }
+
+        try {
+            file.transferTo(targetFile);
+            imagePath = targetFile.getPath();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return imagePath;
     }
 }
