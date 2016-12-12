@@ -20,7 +20,7 @@
     </div>
     <div region="center" border="false">
         <table id="dg" title="商品列表" class="easyui-datagrid" style="height: 100%" rownumbers="true" fitColumns="true"
-               data-options="border:false,singleSelect:true,pagination:true,url:'${ctx}/guide/list.htm',method:'post',toolbar:'#tb'">
+               data-options="border:false,singleSelect:true,pagination:true,url:'${ctx}/guide/list.htm',method:'post',toolbar:'#tb',onDblClickRow:edit">
             <thead>
             <tr>
                 <th data-options="field:'name',width:80">商品名称</th>
@@ -135,7 +135,7 @@
     }
     function edit() {
         var row = $('#dg').datagrid('getSelected');
-        console.log(row);
+        //console.log(row);
         loadRows(row);
         if (row) {
             $('#dlg').dialog('open').dialog('center').dialog('setTitle', '修改');
@@ -206,17 +206,28 @@
     }
 
     function loadRows(row) {
+        $('#fm').form('clear');
         $('#fm').find('input').each(function () {
             var name = $(this).attr("name");
             if (typeof(name) != "undefined") {
                 var i = name.indexOf(".") + 1;
                 if (i > 0) {
                     var key = name.substr(i, name.length - i);
-                    console.log(row[key]);
+                    //console.log(row[key]);
                     $('#' + key).textbox('setValue', row[key]);
                 }
             }
         })
+        $('#pv').attr('src', '${ctx}/' + row['imagePath']);
+        var data = $('#storeType').combobox('getData');
+        var store = row['storeType'];
+        //console.log(store);
+        for (i in data){
+            if (store == data[i].value){
+                //console.log(data[i].text);
+                $("#storeType").combobox('setValue', data[i].text);
+            }
+        }
     }
 
     function fmMoney(val, row) {
