@@ -85,10 +85,9 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        fetch(1, 4);
+        fetch(1, 12);
     })
 
-    var page = 1, rows = 4;
     function fetch(page, rows) {
         $.ajax({
             url:'${ctx}/guide/list.htm',
