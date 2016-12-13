@@ -33,11 +33,13 @@
                 <div class="popular clearfix">
                     <div class="coupon coupon-column">
                         <div class="coupon-inner">
-                            <a href="#"><img src="source/image/1.jpg"></a>
+                            <a href="#">
+                                <img src="../source/image/3.jpg">
+                            </a>
                         </div>
                     </div>
                     <p><i class="tmall"></i><span class="good">${fn:substring("韩版时尚女士简约复古单肩包", 0, 15)}</span></p>
-                    <p class="sale">券后价<span class="small col-xs-offset-1">￥</span><span class="h3 text-right">150</span><span class="h4 old col-xs-offset-2">￥320</span></p>
+                    <p class="sale">券后价<span class="small" style="margin-left: 10px">￥</span><span class="h3">149.8</span><span class="h4 old" style="margin-left: 15px">￥320</span></p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
@@ -45,12 +47,12 @@
                     <div class="coupon coupon-column">
                         <div class="coupon-inner">
                             <a href="#">
-                                <img src="source/image/2.jpg">
+                                <img src="../source/image/3.jpg">
                             </a>
                         </div>
                     </div>
                     <p><i class="tmall"></i><span class="good">${fn:substring("韩版时尚女士简约复古单肩包", 0, 15)}</span></p>
-                    <p class="sale">券后价<span class="small col-xs-offset-1">￥</span><span class="h3 text-right">150</span><span class="h4 old col-xs-offset-2">￥320</span></p>
+                    <p class="sale">券后价<span class="small" style="margin-left: 10px">￥</span><span class="h3">149.8</span><span class="h4 old" style="margin-left: 15px">￥320</span></p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
@@ -58,12 +60,12 @@
                     <div class="coupon coupon-column">
                         <div class="coupon-inner">
                             <a href="#">
-                                <img src="source/image/3.gif">
+                                <img src="../source/image/3.jpg">
                             </a>
                         </div>
                     </div>
                     <p><i class="tmall"></i><span class="good">${fn:substring("韩版时尚女士简约复古单肩包", 0, 15)}</span></p>
-                    <p class="sale">券后价<span class="small col-xs-offset-1">￥</span><span class="h3 text-right">150</span><span class="h4 old col-xs-offset-2">￥320</span></p>
+                    <p class="sale">券后价<span class="small" style="margin-left: 10px">￥</span><span class="h3">149.8</span><span class="h4 old" style="margin-left: 15px">￥320</span></p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
@@ -71,12 +73,12 @@
                     <div class="coupon coupon-column">
                         <div class="coupon-inner">
                             <a href="#">
-                                <img src="source/image/4.gif">
+                                <img src="../source/image/3.jpg">
                             </a>
                         </div>
                     </div>
                     <p><i class="tmall"></i><span class="good">${fn:substring("韩版时尚女士简约复古单肩包", 0, 15)}</span></p>
-                    <p class="sale">券后价<span class="small col-xs-offset-1">￥</span><span class="h3 text-right">150</span><span class="h4 old col-xs-offset-2">￥320</span></p>
+                    <p class="sale">券后价<span class="small" style="margin-left: 10px">￥</span><span class="h3">149.8</span><span class="h4 old" style="margin-left: 15px">￥320</span></p>
                 </div>
             </div>
         </div>
@@ -105,9 +107,9 @@
                             '<div class="coupon-inner">' +
                             '<a href="' + data["link1"] + '"><img src="${ctx}/' + data["imagePath"] + '"></a></div></div>' +
                             '<p><i class="' + data["storeType"] + '"></i><span class="good">' + data["name"] + '</span></p>' +
-                            '<p class="sale">券后价<span class="small col-xs-offset-1">￥</span>' +
-                            '<span class="h3 text-right">' + data["discount"] + '</span>' +
-                            '<span class="h4 old col-xs-offset-1">￥' + data["price"] + '</span></p></div></div>';
+                            '<p class="sale">券后价<span class="small" style="margin-left: 10px">￥</span>' +
+                            '<span class="h3">' + data["discount"] + '</span>' +
+                            '<span class="h4 old" style="margin-left: 15px">￥' + data["price"] + '</span></p></div></div>';
                 }
                 content += '</div>';
 

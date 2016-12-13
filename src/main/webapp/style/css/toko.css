@@ -79,3 +79,79 @@
     display: block;
     float: left;
 }
+
+.detail{
+    margin-top: 45px;
+}
+
+.detail .content{
+    margin-left: 25px;
+}
+.detail .title{
+    margin-left: 8px;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: "Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,Verdana,sans-serif,"WenQuanYi Micro Hei","\5B8B\4F53";
+}
+
+.detail .money{
+    display: block;
+    height: 70px;
+    line-height: 70px;
+    background-color: #e0bdc6;
+}
+
+.detail .price-title{
+    margin-left: 15px;
+    font-size: 16px;
+    color: #d7284d;
+}
+
+.detail .price-now{
+    font-family: Arial;
+    font-size: 28px;
+    margin-left: 5px;
+    color: #E63739;
+}
+
+.detail .price-original{
+    margin-left: 45px;
+    font-size: 16px;
+    color: #EF839A;
+}
+
+.detail .coupon-price{
+    height: 50px;
+    line-height: 50px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #636363;
+    font-family: "Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,Verdana,sans-serif,"WenQuanYi Micro Hei","\5B8B\4F53";
+}
+
+.coupon-price .sum{
+    color: #FE7F7F;
+}
+
+.goods-buy{
+    margin-top: 38px;
+}
+.goods-buy .dis-price, .goods-buy .go-buy{
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #FFF;
+    font-size: 16px;
+}
+
+.goods-buy .dis-price{
+    background: #8c8c8c;
+    border-right: 2px solid #FFF;
+}
+
+.goods-buy .go-buy{
+    float: right;
+    background: #e0a4ae;
+    border-left: 2px solid #FFF;
+}

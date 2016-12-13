@@ -129,17 +129,19 @@
     }
     var url;
     function add() {
+        $("#pv").attr("src", '#');
         $('#dlg').dialog('open').dialog('center').dialog('setTitle', '添加商品');
         $('#fm').form('reset');
         url = '${ctx}/guide/addGoods.htm';
     }
     function edit() {
+        $("#pv").attr("src", '#');
         var row = $('#dg').datagrid('getSelected');
         //console.log(row);
-        loadRows(row);
         if (row) {
             $('#dlg').dialog('open').dialog('center').dialog('setTitle', '修改');
-            $('#fm').form('load', row);
+            $('#fm').form('clear');
+            loadRows(row);
             url = '${ctx}/guide/editGoods.htm?id=' + row.id;
         }
     }
@@ -187,9 +189,9 @@
     function preview(_obj) {
         //var file = _obj.files[0];
         var file = document.getElementById('filebox_file_id_1').files[0];
-        _imgSrc = getObjectURL(file);
+        var _imgSrc = getObjectURL(file);
 
-        console.log("_imgSrc:" + _imgSrc);
+        //console.log("_imgSrc:" + _imgSrc);
         $("#pv").attr("src", _imgSrc);
     }
 
@@ -206,7 +208,6 @@
     }
 
     function loadRows(row) {
-        $('#fm').form('clear');
         $('#fm').find('input').each(function () {
             var name = $(this).attr("name");
             if (typeof(name) != "undefined") {
@@ -219,15 +220,7 @@
             }
         })
         $('#pv').attr('src', '${ctx}/' + row['imagePath']);
-        var data = $('#storeType').combobox('getData');
-        var store = row['storeType'];
-        //console.log(store);
-        for (i in data){
-            if (store == data[i].value){
-                //console.log(data[i].text);
-                $("#storeType").combobox('setValue', data[i].text);
-            }
-        }
+        $("#storeType").combobox('setValue', row['storeType']);
     }
 
     function fmMoney(val, row) {
