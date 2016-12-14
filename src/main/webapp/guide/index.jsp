@@ -92,7 +92,7 @@
 
     function fetch(page, rows) {
         $.ajax({
-            url:'${ctx}/guide/list.htm',
+            url:'${ctx}/guide/list.htm?r='+ Math.random(),
             type:'GET',
             data:{page:page,rows:rows},
             dataType:'json',
