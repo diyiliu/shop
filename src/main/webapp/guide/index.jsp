@@ -105,12 +105,13 @@
                             '<div class="popular clearfix">' +
                             '<div class="coupon coupon-column">' +
                             '<div class="coupon-inner">' +
-                            '<a href="' + data["link1"] + '"><img src="${ctx}/' + data["imagePath"] + '"></a></div></div>' +
-                            '<p><i class="' + data["storeType"] + '"></i><span class="good">' + data["name"] + '</span></p>' +
+                            '<a href="${ctx}/guide/toDetail.htm?serial=' + data["serial"] + '" target="_blank"><img src="${ctx}/' + data["imagePath"] + '"></a></div></div>' +
+                            '<p><i class="' + data["storeType"] + '"></i><span class="good">' +  data["name"].substr(0, 25) + '</span></p>' +
                             '<p class="sale">券后价<span class="small" style="margin-left: 10px">￥</span>' +
                             '<span class="h3">' + data["discount"] + '</span>' +
                             '<span class="h4 old" style="margin-left: 15px">￥' + data["price"] + '</span></p></div></div>';
                 }
+
                 content += '</div>';
 
                 $('#mainPanel').append(content);

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
@@ -32,19 +33,20 @@
             <div class="detail">
                 <div class="col-md-3">
                     <div class="coupon-inner">
-                        <a href="#">
-                            <img src="../source/image/3.jpg">
+                        <a href="${goods.link1}" target="_blank">
+                            <img src="${ctx}/${goods.imagePath}">
                         </a>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="content">
-                        <p><i class="tmall"></i><span class="title">韩版时尚女士简约复古单肩包</span></p>
-                        <p class="money"><span class="price-title">券后价  ￥</span><span class="price-now">359.8</span><span class="price-original">正常售价 ￥ 559.8</span></p>
-                        <p class="coupon-price">优惠券<span class="sum" style="margin-left: 5px;margin-right: 5px">200</span>元</p>
+                        <p><i class="tmall"></i><span class="title">${fn: substring(goods.name, 0, 50)}</span></p>
+                        <p class="money"><span class="price-title">券后价  ￥</span><span class="price-now"><fmt:formatNumber value="${goods.discount}" pattern="##.#"/></span>
+                            <span class="price-original">正常售价 ￥ <fmt:formatNumber value="${goods.price}" pattern="##.#"/></span></p>
+                        <p class="coupon-price">优惠券<span class="sum" style="margin-left: 5px;margin-right: 5px">￥<fmt:formatNumber value="${goods.price - goods.discount}" maxFractionDigits="0"/></span>元</p>
                         <p class="goods-buy">
-                            <a href="#" class="dis-price col-xs-6">马上领券</a>
-                            <a href="#" class="go-buy col-xs-6">立即下单</a>
+                            <a href="${goods.link2}" class="dis-price col-xs-6">马上领券</a>
+                            <a href="${goods.link3}" class="go-buy col-xs-6">立即下单</a>
                         </p>
                     </div>
                 </div>

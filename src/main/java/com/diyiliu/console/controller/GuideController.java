@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -105,7 +106,7 @@ public class GuideController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/editGoods")
+    @RequestMapping("/editGoods")
     public String editGoods(MultipartFile file, GoodsForm goodsForm, HttpServletRequest request, @RequestParam("id") Integer id) {
 
         String imagePath = null;
@@ -126,8 +127,18 @@ public class GuideController {
         return "1";
     }
 
+    @RequestMapping("/toDetail")
+    public ModelAndView toDetail(@RequestParam String serial) {
+        ModelAndView mv = new ModelAndView("/guide/detail");
 
+        Goods goods = new Goods();
+        goods.setWhere(Constant.QBuilder.EQUAL, "serial", serial);
 
+        goods = (Goods) goodsService.select(goods);
+        mv.addObject("goods", goods);
+
+        return mv;
+    }
 
 
     // TODO: 2016/12/7 时间格式绑定
