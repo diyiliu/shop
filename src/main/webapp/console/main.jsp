@@ -60,7 +60,7 @@
                     } else {
                         $('#myTab').tabs('add', {
                             title: treeNode.name,
-                            content: '<div style="height:100%;overflow: hidden;"><iframe id="' + treeNode.id + '" scrolling="no" scorll="no" frameborder="0" height="100%" width="100%" src="' + url + '"></iframe></div>',
+                            content: '<div style="height:100%;overflow: hidden;"><iframe id="' + treeNode.id + '"  frameborder="0" height="100%" width="100%" src="' + url + '"></iframe></div>',
                             closable: true,
                             fit : true,
                             tools : [ {

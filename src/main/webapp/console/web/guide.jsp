@@ -14,7 +14,7 @@
     <script type="text/javascript" src="${ctx}/style/plugin/easyui/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <body>
-<div class="easyui-layout" fit="true">
+<div class="easyui-layout" fit="true" style="overflow: scroll">
     <div region="north" class="easyui-panel" border="false" style="padding: 20px 10px 5px 10px;">
         <input class="easyui-searchbox" data-options="prompt:'店名',searcher:doSearch" style="width:150px">
     </div>
@@ -42,13 +42,13 @@
 </div>
 
 
-<div id="dlg" class="easyui-dialog" style="width:650px"
-     data-options="buttons:'#dlg-buttons',draggable:false,closed:true">
+<div id="dlg" class="easyui-dialog" style="width:650px;"
+     data-options="buttons:'#dlg-buttons',draggable:false,closed:true,maximizable:true">
     <form id="fm" action="${ctx}/guide/addGoods.htm" method="post" enctype="multipart/form-data"
-          style="margin:0;padding:20px 50px">
-        <div style="margin-bottom:20px;font-size:14px;border-bottom:1px solid #ccc">商品信息</div>
+          style="margin:0;padding:15px 20px">
+        <div style="margin-bottom:10px;font-size:14px;border-bottom:1px solid #ccc">商品信息</div>
 
-        <div style="margin-bottom:10px">
+        <div style="margin-bottom:8px">
             <div style="width: 100%">
                 <div style="padding-left: 350px;width: 135px">
                     <img id="pv" src="#" style="width: 100%;height: 180px"/>
@@ -56,61 +56,61 @@
             </div>
         </div>
 
-        <div style="margin-bottom:10px">
+        <div style="margin-bottom:8px">
             <input id="file" name="file" class="easyui-filebox" style="width:100%"
                    data-options="label:'图片:',prompt:'请选择商品图片...',onChange:function(){preview(this)}">
         </div>
 
-        <div style="margin-bottom:10px">
+        <div style="margin-bottom:8px">
             <input id="name" name="goods.name" class="easyui-textbox" style="width:100%" data-options="label:'商品名称:'">
         </div>
 
-        <div style="margin-bottom:10px">
+        <div style="margin-bottom:8px">
             <input id="store" name="goods.store" class="easyui-textbox" style="width:100%" data-options="label:'店铺名称:'">
         </div>
 
-        <div style="margin-bottom:10px">
+        <div style="margin-bottom:8px">
             <select id="storeType" class="easyui-combobox" name="goods.storeType" label="类别" style="width:100%">
                 <option value="tmall" selected="selected">天猫</option>
                 <option value="taobao">淘宝</option>
             </select>
         </div>
 
-        <div style="margin-bottom:10px">
+        <div style="margin-bottom:8px">
             <input id="price" name="goods.price" class="easyui-textbox" style="width:100%" data-options="label:'原价:'">
         </div>
 
-        <div style="margin-bottom:10px">
+        <div style="margin-bottom:8px">
             <input id="discount" name="goods.discount" class="easyui-textbox" style="width:100%"
                    data-options="label:'现价:'">
         </div>
 
-        <div style="margin-bottom:10px">
+        <div style="margin-bottom:8px">
             <input id="tOrder" name="goods.tOrder" class="easyui-textbox" style="width:100%"
                    data-options="label:'淘口令:'">
         </div>
 
-        <div style="margin-bottom:10px">
+        <div style="margin-bottom:8px">
             <input id="link1" name="goods.link1" class="easyui-textbox" style="width:100%;height:30px"
                    data-options="label:'商品链接:',multiline:true">
         </div>
 
-        <div style="margin-bottom:10px">
+        <div style="margin-bottom:8px">
             <input id="link2" name="goods.link2" class="easyui-textbox" style="width:100%;height:30px"
                    data-options="label:'优惠链接:',multiline:true">
         </div>
 
-        <div style="margin-bottom:10px">
+        <div style="margin-bottom:8px">
             <input id="link3" name="goods.link3" class="easyui-textbox" style="width:100%;height:30px"
                    data-options="label:'购买链接:',multiline:true">
         </div>
 
-        <div style="margin-bottom:10px">
+        <div style="margin-bottom:8px">
             <input id="startTime" name="goods.startTime" class="easyui-datetimebox" style="width:100%"
                    data-options="label:'开始时间:'">
         </div>
 
-        <div style="margin-bottom:10px">
+        <div style="margin-bottom:8px">
             <input id="endTime" name="goods.endTime" class="easyui-datetimebox" style="width:100%"
                    data-options="label:'结束时间:'">
         </div>
