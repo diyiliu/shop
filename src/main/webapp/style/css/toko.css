@@ -1,4 +1,7 @@
 /* 购物导航 */
+body{
+    font-family: arial,Microsoft YaHei,verdana;
+}
 .page-wrap {
     /*    min-height: 100%;
         margin-bottom: -295px;*/
