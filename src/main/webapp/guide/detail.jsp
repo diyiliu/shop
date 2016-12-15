@@ -52,9 +52,11 @@
                     </div>
                 </div>
         </div>
-        <div class="row">
-            <div class="col-xs-9">
-                <h3 class="text-center"><span class="icon_hot"></span>每周爆款<span class="icon_tejia"></span></h3>
+        <div class="extend">
+            <div class="row">
+                <div class="col-xs-9">
+                    <h3 class="text-center"><span class="icon_hot"></span>每周爆款<span class="icon_tejia"></span></h3>
+                </div>
             </div>
         </div>
     </div>
@@ -76,7 +78,7 @@
                 var content = '<div class="row"><div class="col-md-9">';
                 for (i in dataGroup){
                     var data = dataGroup[i];
-                    content += '<div class="col-md-4 col-sm-6 col-xs-12">' +
+                    content += '<div class="col-lg-4 col-md-6 col-xs-12">' +
                             '<div class="popular clearfix">' +
                             '<div class="coupon coupon-column">' +
                             '<div class="coupon-inner">' +
