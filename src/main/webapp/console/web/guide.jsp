@@ -50,8 +50,8 @@
 
         <div style="margin-bottom:8px">
             <div style="width: 100%">
-                <div style="padding-left: 350px;width: 135px">
-                    <img id="pv" src="#" style="width: 100%;height: 180px"/>
+                <div style="padding-left: 65%;width: 165px">
+                    <img id="pv" src="#" style="width: 100%;height: 165px"/>
                 </div>
             </div>
         </div>
