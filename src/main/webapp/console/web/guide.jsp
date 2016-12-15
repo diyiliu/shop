@@ -14,7 +14,7 @@
     <script type="text/javascript" src="${ctx}/style/plugin/easyui/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <body>
-<div class="easyui-layout" fit="true" style="overflow: scroll">
+<div id="parentContain" class="easyui-layout" fit="true">
     <div region="north" class="easyui-panel" border="false" style="padding: 20px 10px 5px 10px;">
         <input class="easyui-searchbox" data-options="prompt:'店名',searcher:doSearch" style="width:150px">
     </div>
@@ -43,7 +43,7 @@
 
 
 <div id="dlg" class="easyui-dialog" style="width:650px;"
-     data-options="buttons:'#dlg-buttons',draggable:false,closed:true,maximizable:true">
+     data-options="buttons:'#dlg-buttons',draggable:false,closed:true">
     <form id="fm" action="${ctx}/guide/addGoods.htm" method="post" enctype="multipart/form-data"
           style="margin:0;padding:15px 20px">
         <div style="margin-bottom:10px;font-size:14px;border-bottom:1px solid #ccc">商品信息</div>
@@ -124,6 +124,16 @@
 </div>
 
 <script type="text/javascript">
+    $(document).ready(function () {
+        var height = $('#parentContain').height();
+        if (height < 800){
+            $('#dlg').dialog({
+                fit: true
+            });
+        }
+    })
+
+
     function doSearch(value) {
         alert('You input: ' + value);
     }
