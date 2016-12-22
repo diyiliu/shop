@@ -2,6 +2,7 @@
 body{
     font-family: arial,Microsoft YaHei,verdana;
 }
+
 .page-wrap {
     /*    min-height: 100%;
         margin-bottom: -295px;*/
@@ -9,8 +10,55 @@ body{
 
 .title-content {
     background-color: #fff;
-    padding: 24px 0 20px;
+    padding: 20px 0 10px;
     border-bottom: 1px solid #e2e2e2;
+}
+
+.navbar-brand .logo-heart {
+    float: left;
+    height: 22px;
+    width: 22px;
+    background: url("/style/image/heart.png") left top no-repeat;
+    background-size: 22px 22px;
+}
+.navbar-brand .logo-heart a{
+    display: block;
+    height: 22px;
+    width: 22px;
+    padding: 0;
+}
+.navbar-brand .logo-name {
+    float: left;
+    margin-left: 10px;
+    font-family: "proxima-nova",Arial,sans-serif;
+    font-weight: 700;
+    line-height: 22px;
+    font-size: 20px;
+    letter-spacing: 5px;
+}
+
+.navbar-brand .logo-name a{
+    text-shadow: 0 1px 0 #FFF;
+    color: #333;
+    text-align: center;
+}
+
+.navbar-brand .logo-heart a:hover,
+.navbar-brand .logo-name a:hover  {
+    text-decoration: none;
+}
+
+.navbar-default .navbar-nav > li > a{
+    font-family: "proxima-nova",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #F18DB3;
 }
 
 .popular {
@@ -66,7 +114,7 @@ body{
     height: 45px;
     padding: 10px;
     color: #fff;
-    background-color: #cc2b5c;
+    background-color: #DE5F8F;
 }
 
 .popular .good {

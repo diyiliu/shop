@@ -5,24 +5,47 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>购物导航</title>
+    <title>爱聚淘</title>
+    <link rel="icon" type="image/x-icon" href="${ctx}/style/image/favicon.ico"/>
 
     <link rel="stylesheet" type="text/css" href="${ctx}/style/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="${ctx}/style/css/toko.css">
 
-    <script type="text/javascript" src="${ctx}/style/js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="${ctx}/style/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="${ctx}/style/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="page-wrap">
     <div class="title-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <h1 class="text-center">今日爆款</h1>
+        <nav class="navbar navbar-default" style="border: 0">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-4" data-stopPropagation="true">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand">
+                        <div class="logo-heart">
+                            <a href="www.ajutao.com" title="爱聚淘"></a>
+                        </div>
+                        <div class="logo-name">
+                            <a href="www.ajutao.com" title="爱聚淘">爱聚淘</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-4">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="">每日上新</a></li>
+                            <li><a href="">爆款秒杀</a></li>
+                            <li><a href="">9块9专场</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
+        </nav>
     </div>
 </div>
 
