@@ -29,10 +29,10 @@
                     </button>
                     <div class="navbar-brand">
                         <div class="logo-heart">
-                            <a href="www.ajutao.com" title="爱聚淘"></a>
+                            <a href="http://www.ajutao.com" title="爱聚淘"></a>
                         </div>
                         <div class="logo-name">
-                            <a href="www.ajutao.com" title="爱聚淘">爱聚淘</a>
+                            <a href="http://www.ajutao.com" title="爱聚淘">爱聚淘</a>
                         </div>
                     </div>
                 </div>

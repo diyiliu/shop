@@ -28,17 +28,17 @@
                     </button>
                     <div class="navbar-brand">
                         <div class="logo-heart">
-                            <a href="www.ajutao.com" title="爱聚淘"></a>
+                            <a href="http://www.ajutao.com" title="爱聚淘"></a>
                         </div>
                         <div class="logo-name">
-                            <a href="www.ajutao.com" title="爱聚淘">爱聚淘</a>
+                            <a href="http://www.ajutao.com" title="爱聚淘">爱聚淘</a>
                         </div>
                     </div>
                 </div>
                 <div class="container">
                     <div class="collapse navbar-collapse" id="nav-collapse">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="www.ajutao.com">首页</a></li>
+                            <li class="active"><a href="http://www.ajutao.com">首页</a></li>
                             <li><a href="">每日上新</a></li>
                             <li><a href="">爆款秒杀</a></li>
                             <li><a href="">9块9专场</a></li>
