@@ -28,7 +28,7 @@
 
 <div class="section">
     <div class="container" id="mainPanel">
-        <div class="row">
+<%--        <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="popular clearfix">
                     <div class="coupon coupon-column">
@@ -81,7 +81,7 @@
                     <p class="sale">券后价<span class="small" style="margin-left: 10px">￥</span><span class="h3">149.8</span><span class="h4 old" style="margin-left: 15px">￥320</span></p>
                 </div>
             </div>
-        </div>
+        </div>--%>
     </div>
 </div>
 

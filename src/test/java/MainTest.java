@@ -101,4 +101,26 @@ public class MainTest {
     }
 
 
+    @Test
+    public void testSql(){
+
+        String sql = "SELECT ID AS 测试ID, FUNCTION_ID AS 测试菜单, PERSON_ID AS 测试自然人ID  FROM NAT_SUBSIDY_INFO";
+
+        int start = sql.indexOf("SELECT");
+        int end  = sql.indexOf("FROM");
+
+        sql = sql.substring(start + 6, end);
+
+        String[] items = sql.split(",");
+
+        for (String item: items){
+            String[] col = item.split("AS");
+
+            System.out.println(col[0]);
+            if (col.length > 1){
+                System.out.println(col[1]);
+            }
+        }
+    }
+
 }

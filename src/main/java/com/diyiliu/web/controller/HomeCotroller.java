@@ -16,7 +16,7 @@ public class HomeCotroller {
     public String index(){
         System.out.println("Home index!");
 
-        return "/index";
+        return "/guide/index";
     }
 
     @RequestMapping("/hello")
