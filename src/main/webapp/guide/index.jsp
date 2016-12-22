@@ -20,7 +20,7 @@
         <nav class="navbar navbar-default" style="border: 0">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-4" data-stopPropagation="true">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse" data-stopPropagation="true">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="container">
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-4">
+                    <div class="collapse navbar-collapse" id="nav-collapse">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="www.ajutao.com">首页</a></li>
                             <li><a href="">每日上新</a></li>

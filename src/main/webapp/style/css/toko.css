@@ -61,6 +61,11 @@ body{
     background-color: #F18DB3;
 }
 
+#nav-collapse{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
 .popular {
     margin: 40px 0 0;
     padding-bottom: 20px;
