@@ -38,7 +38,8 @@
                 <div class="container">
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-4">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="">每日上新</a></li>
+                            <li class="active"><a href="www.ajutao.com">首页</a></li>
+                            <li><a href="">每日上新</a></li>
                             <li><a href="">爆款秒杀</a></li>
                             <li><a href="">9块9专场</a></li>
                         </ul>
