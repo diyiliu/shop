@@ -1,0 +1,259 @@
+/* 购物导航 */
+body{
+    font-family: arial,Microsoft YaHei,verdana;
+}
+
+.page-wrap {
+    /*    min-height: 100%;
+        margin-bottom: -295px;*/
+}
+
+.title-content {
+    background-color: #fff;
+    padding: 20px 0 10px;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.navbar-brand .logo-heart {
+    float: left;
+    height: 22px;
+    width: 22px;
+    background: url("/style/image/heart.png") left top no-repeat;
+    background-size: 22px 22px;
+}
+.navbar-brand .logo-heart a{
+    display: block;
+    height: 22px;
+    width: 22px;
+    padding: 0;
+}
+.navbar-brand .logo-name {
+    float: left;
+    margin-left: 10px;
+    font-family: "proxima-nova",Arial,sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+}
+
+.navbar-brand .logo-name a{
+    text-shadow: 0 1px 0 #FFF;
+    color: #333;
+    text-align: center;
+}
+
+.navbar-brand .logo-heart a:hover,
+.navbar-brand .logo-name a:hover  {
+    text-decoration: none;
+}
+
+.navbar-default .navbar-nav > li > a{
+    font-family: "proxima-nova",Arial,sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #F18DB3;
+}
+
+#nav-collapse{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.page-wrap .header{
+    margin-left: 10px;
+    font-family: "proxima-nova",Arial,sans-serif;
+    height: 75px;
+    line-height: 75px;
+}
+.page-wrap .header a{
+    font-weight: 700;
+    font-size: 42px;
+    color: #333;
+}
+
+
+.popular {
+    margin: 40px 0 0;
+    padding-bottom: 20px;
+}
+
+.coupon {
+    background-color: #fff;
+    margin-bottom: 10px;
+    border: 1px solid #e2e2e2;
+    -webkit-box-shadow: 0 1px 0 0 #e2e2e2;
+    box-shadow: 0 1px 0 0 #e2e2e2;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.coupon.coupon-column {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.coupon.coupon-column .coupon-inner {
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+.coupon .coupon-inner {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 2px;
+}
+
+.coupon-inner a {
+    width: 100%;
+}
+
+.coupon-inner img{
+    width: 340px;
+    height: 340px;
+}
+
+.detail .coupon-inner img{
+    width: 358px;
+    height: 358px;
+}
+
+.popular .sale {
+    display: block;
+    height: 45px;
+    padding: 10px;
+    color: #fff;
+    background-color: #DE5F8F;
+}
+
+.popular .good {
+    padding-left: 15px;
+}
+
+.sale .old {
+    font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", Helvetica, tahoma, arial, Verdana, sans-serif, "WenQuanYi Micro Hei", "\5B8B\4F53";
+    text-decoration: line-through;
+    font-size: small;
+}
+
+.tmall {
+    background: url("/style/image/tmall.png") 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    display: block;
+    float: left;
+}
+
+.taobao {
+    background: url("/style/image/taobao.png") 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    display: block;
+    float: left;
+}
+
+.detail{
+    margin-top: 45px;
+    margin-bottom: 58px;
+}
+
+.detail .content{
+    margin-left: 25px;
+}
+.detail .title{
+    margin-left: 8px;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: "Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,Verdana,sans-serif,"WenQuanYi Micro Hei","\5B8B\4F53";
+}
+
+.detail .money{
+    display: block;
+    height: 70px;
+    line-height: 70px;
+    background-color: #e0bdc6;
+}
+
+.detail .price-title{
+    margin-left: 15px;
+    font-size: 16px;
+    color: #d7284d;
+}
+
+.detail .price-now{
+    font-family: Arial;
+    font-size: 28px;
+    margin-left: 5px;
+    color: #E63739;
+}
+
+.detail .price-original{
+    margin-left: 45px;
+    font-size: 16px;
+    color: #EF839A;
+}
+
+.detail .coupon-price{
+    height: 50px;
+    line-height: 50px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #636363;
+    font-family: "Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,Verdana,sans-serif,"WenQuanYi Micro Hei","\5B8B\4F53";
+}
+
+.coupon-price .sum{
+    color: #FE7F7F;
+}
+
+.goods-buy{
+    margin-top: 38px;
+}
+.goods-buy .dis-price, .goods-buy .go-buy{
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #FFF;
+    font-size: 16px;
+}
+
+.goods-buy .dis-price{
+    background: #8c8c8c;
+    border-right: 2px solid #FFF;
+}
+
+.goods-buy .go-buy{
+    float: right;
+    background: #e0a4ae;
+    border-left: 2px solid #FFF;
+}
+
+/* 图片 */
+.icon_new, .icon_hot, .icon_weekly, .icon_top, .icon_dahong, .icon_new90off, .icon_tejia, .icon_special20off {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    overflow: hidden;
+    text-indent: 100px;
+    background-image: url(../image/icon_sprite.png);
+    background-repeat: no-repeat;
+    height: 22px;
+    line-height: 22px;
+}
+.icon_hot {
+    width: 35px;
+    background-position: 0 -22px;
+}
+
+.icon_tejia {
+    width: 35px;
+    background-position: 0 -132px;
+}
