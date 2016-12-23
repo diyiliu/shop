@@ -22,6 +22,17 @@
                 <a href="http://www.ajutao.com" title="爱聚淘">爱聚淘</a>
             </div>
         </div>
+        <div class="row header-nav">
+            <div class="col-sm-4">
+                <a href="">今日上新</a>
+            </div>
+            <div class="col-sm-4">
+                <a href="">爆款秒杀</a>
+            </div>
+            <div class="col-sm-4">
+                <a href="">九块九专场</a>
+            </div>
+        </div>
     </div>
 </div>
 

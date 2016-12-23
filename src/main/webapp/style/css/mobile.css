@@ -64,6 +64,10 @@ body{
     margin-right: -15px;
 }
 
+.page-wrap a:hover{
+    text-decoration: none;
+}
+
 .page-wrap .header{
     margin-left: 10px;
     font-family: "proxima-nova",Arial,sans-serif;
@@ -76,6 +80,15 @@ body{
     color: #333;
 }
 
+.page-wrap .header-nav{
+    text-align: center;
+}
+
+.page-wrap .header-nav a{
+    font-weight: 500;
+    font-size: 28px;
+    color: #3d3d3d;
+}
 
 .popular {
     margin: 40px 0 0;
