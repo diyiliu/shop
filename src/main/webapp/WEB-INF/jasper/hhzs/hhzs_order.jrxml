@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-01-03T17:39:49 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="hhzs_order" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="499b6669-41d4-48fb-b8e8-3168b58006ad">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="hhzs"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Dataset1" uuid="3517b1bb-06e3-4b31-89ec-a21f2425f36c">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="hhzs"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT o.order_id,
+       o.order_number,
+       o.customer_id,
+       o.customer_name,
+       o.order_address,
+       o.order_tel,
+       o.customer_manager_id,
+       o.customer_manager_name,
+       c.customer_spare6,
+       c.customer_spare5,
+       c.customer_duty_name,
+       c.customer_district_name,
+       c.customer_province,
+       c.customer_city,
+       c.customer_area,
+       o.order_sum,
+       o.order_rebate,
+       o.order_fact_sum,
+       o.order_fact_rebate,
+       o.order_type,
+       o.order_date,
+       o.order_consignment_date,
+       o.order_state,
+       o.employee_id,
+       o.employee_name,
+       o.org_id,
+       o.org_code,
+       o.org_name,
+       o.update_id,
+       o.update_time,
+       o.order_latlon,
+       o.order_latlon_explain,
+       o.remark,
+       o.task_id,
+       o.order_source,
+       o.send_method,
+       o.send_method_value,
+       o.product_remark,
+       o.address_remark,
+       app_number,
+       spare1,
+       spare2,
+       spare3,
+       spare4,
+       spare5,
+       spare6,
+       spare7,
+       (SELECT SUM(order_list_amount)
+          FROM tf_sss_order_list
+         WHERE tf_sss_order_list.order_id = o.order_id) AS ordercount,
+       c.customer_code,
+       c.scheme_total_amount,
+       c.scheme_total_price
+  FROM tf_sss_order o
+  LEFT JOIN (SELECT a.order_id,
+                    SUM(a.scheme_amount) AS scheme_total_amount,
+                    SUM(a.scheme_price) AS scheme_total_price
+               FROM tf_sss_order_list a
+              GROUP BY order_id) c
+    ON c.order_id = o.order_id
+  LEFT JOIN tf_sss_customer c
+    ON o.customer_id = c.customer_id
+ WHERE o.order_id = 4950955531883395543]]>
+		</queryString>
+		<field name="ORDER_ID" class="java.math.BigDecimal"/>
+		<field name="ORDER_NUMBER" class="java.lang.String"/>
+		<field name="CUSTOMER_ID" class="java.math.BigDecimal"/>
+		<field name="CUSTOMER_NAME" class="java.lang.String"/>
+		<field name="ORDER_ADDRESS" class="java.lang.String"/>
+		<field name="ORDER_TEL" class="java.lang.String"/>
+		<field name="CUSTOMER_MANAGER_ID" class="java.math.BigDecimal"/>
+		<field name="CUSTOMER_MANAGER_NAME" class="java.lang.String"/>
+		<field name="CUSTOMER_SPARE6" class="java.lang.String"/>
+		<field name="CUSTOMER_SPARE5" class="java.lang.String"/>
+		<field name="CUSTOMER_DUTY_NAME" class="java.lang.String"/>
+		<field name="CUSTOMER_DISTRICT_NAME" class="java.lang.String"/>
+		<field name="CUSTOMER_PROVINCE" class="java.lang.String"/>
+		<field name="CUSTOMER_CITY" class="java.lang.String"/>
+		<field name="CUSTOMER_AREA" class="java.lang.String"/>
+		<field name="ORDER_SUM" class="java.math.BigDecimal"/>
+		<field name="ORDER_REBATE" class="java.math.BigDecimal"/>
+		<field name="ORDER_FACT_SUM" class="java.math.BigDecimal"/>
+		<field name="ORDER_FACT_REBATE" class="java.math.BigDecimal"/>
+		<field name="ORDER_TYPE" class="java.lang.String"/>
+		<field name="ORDER_DATE" class="java.sql.Timestamp"/>
+		<field name="ORDER_CONSIGNMENT_DATE" class="java.sql.Timestamp"/>
+		<field name="ORDER_STATE" class="java.lang.String"/>
+		<field name="EMPLOYEE_ID" class="java.math.BigDecimal"/>
+		<field name="EMPLOYEE_NAME" class="java.lang.String"/>
+		<field name="ORG_ID" class="java.math.BigDecimal"/>
+		<field name="ORG_CODE" class="java.lang.String"/>
+		<field name="ORG_NAME" class="java.lang.String"/>
+		<field name="UPDATE_ID" class="java.math.BigDecimal"/>
+		<field name="UPDATE_TIME" class="java.sql.Timestamp"/>
+		<field name="ORDER_LATLON" class="java.lang.String"/>
+		<field name="ORDER_LATLON_EXPLAIN" class="java.lang.String"/>
+		<field name="REMARK" class="java.lang.String"/>
+		<field name="TASK_ID" class="java.math.BigDecimal"/>
+		<field name="ORDER_SOURCE" class="java.lang.String"/>
+		<field name="SEND_METHOD" class="java.lang.String"/>
+		<field name="SEND_METHOD_VALUE" class="java.lang.String"/>
+		<field name="PRODUCT_REMARK" class="java.lang.String"/>
+		<field name="ADDRESS_REMARK" class="java.lang.String"/>
+		<field name="APP_NUMBER" class="java.lang.String"/>
+		<field name="SPARE1" class="java.lang.String"/>
+		<field name="SPARE2" class="java.lang.String"/>
+		<field name="SPARE3" class="java.lang.String"/>
+		<field name="SPARE4" class="java.math.BigDecimal"/>
+		<field name="SPARE5" class="java.math.BigDecimal"/>
+		<field name="SPARE6" class="java.sql.Timestamp"/>
+		<field name="SPARE7" class="java.sql.Timestamp"/>
+		<field name="ORDERCOUNT" class="java.math.BigDecimal"/>
+		<field name="CUSTOMER_CODE" class="java.lang.String"/>
+		<field name="SCHEME_TOTAL_AMOUNT" class="java.math.BigDecimal"/>
+		<field name="SCHEME_TOTAL_PRICE" class="java.math.BigDecimal"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT o.order_id,
+       o.order_number,
+       o.customer_id,
+       o.customer_name,
+       o.order_address,
+       o.order_tel,
+       o.customer_manager_id,
+       o.customer_manager_name,
+       c.customer_spare6,
+       c.customer_spare5,
+       c.customer_duty_name,
+       c.customer_district_name,
+       c.customer_province,
+       c.customer_city,
+       c.customer_area,
+       o.order_sum,
+       o.order_rebate,
+       o.order_fact_sum,
+       o.order_fact_rebate,
+       o.order_type,
+       o.order_date,
+       o.order_consignment_date,
+       o.order_state,
+       o.employee_id,
+       o.employee_name,
+       o.org_id,
+       o.org_code,
+       o.org_name,
+       o.update_id,
+       o.update_time,
+       o.order_latlon,
+       o.order_latlon_explain,
+       o.remark,
+       o.task_id,
+       o.order_source,
+       o.send_method,
+       o.send_method_value,
+       o.product_remark,
+       o.address_remark,
+       app_number,
+       spare1,
+       spare2,
+       spare3,
+       spare4,
+       spare5,
+       spare6,
+       spare7,
+       (SELECT SUM(order_list_amount)
+          FROM tf_sss_order_list
+         WHERE tf_sss_order_list.order_id = o.order_id) AS ordercount,
+       c.customer_code,
+       c.scheme_total_amount,
+       c.scheme_total_price
+  FROM tf_sss_order o
+  LEFT JOIN (SELECT a.order_id,
+                    SUM(a.scheme_amount) AS scheme_total_amount,
+                    SUM(a.scheme_price) AS scheme_total_price
+               FROM tf_sss_order_list a
+              GROUP BY order_id) c
+    ON c.order_id = o.order_id
+  LEFT JOIN tf_sss_customer c
+    ON o.customer_id = c.customer_id
+ WHERE o.order_id = 4950955531883395543
+]]>
+	</queryString>
+	<field name="ORDER_ID" class="java.math.BigDecimal"/>
+	<field name="ORDER_NUMBER" class="java.lang.String"/>
+	<field name="CUSTOMER_ID" class="java.math.BigDecimal"/>
+	<field name="CUSTOMER_NAME" class="java.lang.String"/>
+	<field name="ORDER_ADDRESS" class="java.lang.String"/>
+	<field name="ORDER_TEL" class="java.lang.String"/>
+	<field name="CUSTOMER_MANAGER_ID" class="java.math.BigDecimal"/>
+	<field name="CUSTOMER_MANAGER_NAME" class="java.lang.String"/>
+	<field name="CUSTOMER_SPARE6" class="java.lang.String"/>
+	<field name="CUSTOMER_SPARE5" class="java.lang.String"/>
+	<field name="CUSTOMER_DUTY_NAME" class="java.lang.String"/>
+	<field name="CUSTOMER_DISTRICT_NAME" class="java.lang.String"/>
+	<field name="CUSTOMER_PROVINCE" class="java.lang.String"/>
+	<field name="CUSTOMER_CITY" class="java.lang.String"/>
+	<field name="CUSTOMER_AREA" class="java.lang.String"/>
+	<field name="ORDER_SUM" class="java.math.BigDecimal"/>
+	<field name="ORDER_REBATE" class="java.math.BigDecimal"/>
+	<field name="ORDER_FACT_SUM" class="java.math.BigDecimal"/>
+	<field name="ORDER_FACT_REBATE" class="java.math.BigDecimal"/>
+	<field name="ORDER_TYPE" class="java.lang.String"/>
+	<field name="ORDER_DATE" class="java.sql.Timestamp"/>
+	<field name="ORDER_CONSIGNMENT_DATE" class="java.sql.Timestamp"/>
+	<field name="ORDER_STATE" class="java.lang.String"/>
+	<field name="EMPLOYEE_ID" class="java.math.BigDecimal"/>
+	<field name="EMPLOYEE_NAME" class="java.lang.String"/>
+	<field name="ORG_ID" class="java.math.BigDecimal"/>
+	<field name="ORG_CODE" class="java.lang.String"/>
+	<field name="ORG_NAME" class="java.lang.String"/>
+	<field name="UPDATE_ID" class="java.math.BigDecimal"/>
+	<field name="UPDATE_TIME" class="java.sql.Timestamp"/>
+	<field name="ORDER_LATLON" class="java.lang.String"/>
+	<field name="ORDER_LATLON_EXPLAIN" class="java.lang.String"/>
+	<field name="REMARK" class="java.lang.String"/>
+	<field name="TASK_ID" class="java.math.BigDecimal"/>
+	<field name="ORDER_SOURCE" class="java.lang.String"/>
+	<field name="SEND_METHOD" class="java.lang.String"/>
+	<field name="SEND_METHOD_VALUE" class="java.lang.String"/>
+	<field name="PRODUCT_REMARK" class="java.lang.String"/>
+	<field name="ADDRESS_REMARK" class="java.lang.String"/>
+	<field name="APP_NUMBER" class="java.lang.String"/>
+	<field name="SPARE1" class="java.lang.String"/>
+	<field name="SPARE2" class="java.lang.String"/>
+	<field name="SPARE3" class="java.lang.String"/>
+	<field name="SPARE4" class="java.math.BigDecimal"/>
+	<field name="SPARE5" class="java.math.BigDecimal"/>
+	<field name="SPARE6" class="java.sql.Timestamp"/>
+	<field name="SPARE7" class="java.sql.Timestamp"/>
+	<field name="ORDERCOUNT" class="java.math.BigDecimal"/>
+	<field name="CUSTOMER_CODE" class="java.lang.String"/>
+	<field name="SCHEME_TOTAL_AMOUNT" class="java.math.BigDecimal"/>
+	<field name="SCHEME_TOTAL_PRICE" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="330" y="24" width="150" height="30" uuid="f3007925-38a2-4288-8825-8efeb32cbea6"/>
+				<textFieldExpression><![CDATA["江苏宗申整车销售订单"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="241" splitType="Stretch">
+			<componentElement>
+				<reportElement isPrintRepeatedValues="false" x="6" y="20" width="799" height="124" uuid="ff3781ca-5952-46fa-917a-832b19cbc123">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset1" uuid="8a1ebae3-3b9f-4fb2-8063-456751353670">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="79" uuid="7ca51246-6032-4de4-ba8b-c2b15059f2b9">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="79" height="30" uuid="945bcf3e-aaa2-4c21-b17e-1fe94b0e84b8"/>
+								<textFieldExpression><![CDATA["订单号"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1"/>
+						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="30"/>
+					</jr:column>
+					<jr:column width="172" uuid="fd188f28-d99e-411e-b567-7dc9c4b86822">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="172" height="30" uuid="cf68802d-750c-4529-ba72-a351e3e01be7"/>
+								<textFieldExpression><![CDATA[$F{APP_NUMBER}]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1"/>
+						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="30"/>
+					</jr:column>
+					<jr:column width="89" uuid="e814d48c-e283-4ab9-bea6-873a1dc3d71c">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="89" height="30" uuid="65e3f4c1-a53f-4272-9c36-1d777b538a1e"/>
+								<textFieldExpression><![CDATA["订货地址"]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1"/>
+						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="30"/>
+					</jr:column>
+					<jr:column width="170" uuid="91b2975b-de33-496a-86fb-7d6b760211e4">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1"/>
+						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="30"/>
+					</jr:column>
+					<jr:column width="120" uuid="5bcbf9f2-73c5-45e3-ab98-bb6f2f10ac01">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1"/>
+						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="30"/>
+					</jr:column>
+					<jr:column width="149" uuid="a6139053-5e84-441c-9d20-d36044b5e8da">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1"/>
+						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="30"/>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+</jasperReport>

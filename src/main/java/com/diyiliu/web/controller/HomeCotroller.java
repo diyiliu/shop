@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Description: HomeCotroller
@@ -23,14 +24,13 @@ public class HomeCotroller {
         logger.debug("Home index!");
         String reqHeader = request.getHeader("user-agent");
 
-        return "guide/mobile/index";
-
 /*        if (isMobile(reqHeader)){
 
             return "/guide/mobile/index";
         }
 
         return "/guide/index";*/
+        return "index";
     }
 
     @RequestMapping("/hello")
@@ -55,6 +55,14 @@ public class HomeCotroller {
     }
 
 
+    @RequestMapping("/hhreport/order")
+    public String hhorder(HttpServletRequest request, HttpServletResponse response) {
+
+        return "/WEB-INF/reportJsps/hhzs/order";
+//        testOracle(request, response);
+    }
+
+
     /**
      * 查看终端类型（PC/移动终端）
      *
@@ -72,4 +80,27 @@ public class HomeCotroller {
 
         return false;
     }
+
+
+/*    public void testOracle(HttpServletRequest request, HttpServletResponse response){
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.1.53:1521:orcl", "hhzs", "1qaz2wsx");
+
+            File reportFile = new File(request.getServletContext().getRealPath("/WEB-INF/jasper/hhzs/Blank_A4.jasper"));
+
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(reportFile);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, conn);
+
+            HtmlExporter htmlExporter = new HtmlExporter();
+            htmlExporter.setExporterInput(new SimpleExporterInput(jasperPrint));
+            htmlExporter.setExporterOutput(new SimpleHtmlExporterOutput(response.getWriter()));
+            htmlExporter.exportReport();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }*/
 }

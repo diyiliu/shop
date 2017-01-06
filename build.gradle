@@ -51,10 +51,14 @@ dependencies {
     // 本地依赖
     compile fileTree(dir: 'lib', include: '*.jar')
 
-    /*
-    compile fileTree(dir: 'lib/rq', include: '*.jar')
+    //compile fileTree(dir: 'lib/rq', include: '*.jar')
     compile fileTree(dir: 'lib/jr', include: '*.jar')
-    */
+
+    // jaspersoft
+    compile("net.sf.jasperreports:jasperreports:6.3.1"){
+        exclude group: 'com.lowagie';
+        exclude group: 'org.olap4j';
+    }
 
     compile(
             // spring 包
