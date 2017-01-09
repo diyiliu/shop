@@ -123,4 +123,10 @@ public class MainTest {
         }
     }
 
+    @Test
+    public  void  testNull(){
+        BigDecimal b = new BigDecimal(0);
+
+        System.out.println("" + "");
+    }
 }
